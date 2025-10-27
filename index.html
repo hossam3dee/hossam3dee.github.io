@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hossam | Portfolio</title>
     <link rel="icon" type="image/png" href="assets/img/Package.png"/>
-    <!-- Tailwind CSS CDN --><script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Plyr.io CSS for the video player theme -->
-    <!-- <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" /> -->
-
-    <!-- Google Font: Monomakh -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
@@ -51,26 +47,18 @@
 </head>
 <body class="bg-black text-gray-50">
 
-    <!-- 
-      STICKY NAVIGATION HEADER
-      - position: fixed, top-0, z-50 (to stick to top)
-      - bg-black/30 backdrop-blur-sm (transparent effect)
-      - Uses relative/absolute positioning to center the name
-        while keeping links on the right.
-    --><header class="fixed top-0 left-0 w-full bg-black/0 backdrop-blur-sm z-50 transition-all duration-300">
+    <header class="fixed top-0 left-0 w-full bg-black/0 backdrop-blur-sm z-50 transition-all duration-300">
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16 md:h-20">
                 
-                <!-- 
-                  Left Spacer
-                --><div class="w-16 md:w-24">
-                    <!-- Back to being just a spacer --></div>
+                <div class="w-16 md:w-24">
+                    </div>
 
-                <!-- Centered Name --><div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                     <a href="#" class="text-xl md:text-2xl whitespace-nowrap">Hossam 3D</a>
                 </div>
 
-                <!-- Right Navigation Links --><nav class="flex items-center gap-4 md:gap-6">
+                <nav class="flex items-center gap-4 md:gap-6">
                     <a href="#contact" class="text-sm md:text-base hover:text-gray-400 transition-colors flex items-center justify-center gap-2 duration-200">
                         <img 
                         src="assets/img/Telephone Receiver.png" 
@@ -84,18 +72,8 @@
         </div>
     </header>
 
-    <!-- 
-      HERO SECTION (Full Screen)
-      - h-screen (full height), w-full (full width)
-      - relative (so the video can be positioned absolutely inside it)
-    --><main class="relative w-full h-screen overflow-hidden">
+    <main class="relative w-full h-screen overflow-hidden">
         
-        <!-- 
-          BACKGROUND VIDEO
-          - You can replace the `src` with your own video file.
-          - object-fit: cover (fills the screen)
-          - opacity-40 (as requested)
-        -->
         <video 
             src="assets/vid/header.mp4" 
             autoplay 
@@ -103,33 +81,21 @@
             muted 
             playsinline
             class="absolute top-0 left-0 w-full h-full object-cover opacity-30 z-0"
-            poster="assets/img/poster.png"
+            poster="assets/img/poster.webp"
         ></video>
-
-        <!-- 
-          OPTIONAL BACKGROUND IMAGE (If you want to use this, delete or comment out the <video> tag above)
-        <img 
-            src="https://placehold.co/1920x1080/000000/333333?text=hero+background" 
-            alt="hero background" 
-            class="section-bg-image"
-        >
-        -->
 
         <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
             
-            <!-- Profile Picture Added Here -->
             <img 
                 class="h-24 w-24 md:h-40 md:w-40 rounded-full object-cover mb-11 shadow-lg" 
-                src="assets/img/PP.jpg" 
+                src="assets/img/PP.webp" 
                 alt="Profile Picture"
             >
 
-            <!-- Wrap H1 and new APNG in a flex container to align them -->
             <div class="flex items-center justify-center gap-4 md:gap-6">
                 <h1 class="text-4xl md:text-6xl lg:text-7xl tracking-wide">
                     hi, i'm Hossam
                 </h1>
-                <!-- APNG Placeholder -->
                 <img 
                     src="assets/img/Waving Hand.png" 
                     alt="animated png" 
@@ -148,39 +114,19 @@
 
     </main>
 
-    <!-- 
-      EXAMPLE CONTENT SECTIONS
-    --><!-- 
-      GALLERY SECTION (ID for navigation)
-      - min-h-screen (at least full height, can grow)
-      - relative (so we can add a background image and absolute elements)
-    -->
-      
-    <section id="general" class="relative w-full min-h-[1200px] md:min-h-[1500px] py-20 md:py-32 overflow-hidden">
+<section id="general" class="relative w-full min-h-[1200px] md:min-h-[1500px] py-20 md:py-32 overflow-hidden">
 
-        <!-- 
-          Optional Section Background Image
-          - Replace `src` with your image.
-          - The `section-bg-image` class (in <style>) makes it
-            a 40% opacity background.
-        --><img 
+        <img 
             src="https://placehold.co/1920x1080/000000/000000?text" 
             alt="abstract background" 
             class="section-bg-image"
         >
 
-        <!-- 
-          Content Container
-          - relative, z-10 (to be on top of the bg image)
-          - This container defines the "canvas" for your
-            absolutely positioned elements.
-        --><div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
           <h2 class="text-4xl md:text-5xl mb-16 flex justify-center items-center gap-4">
-            <!-- The text is now a child of the flex container -->
             <span>super realistic</span>
             
-            <!-- Your APNG placeholder -->
             <img 
                 src="assets/img/Exploding Head.png" 
                 alt="animated png" 
@@ -188,54 +134,27 @@
             >
           </h2>
 
-            <!-- 
-              HOW TO STACK IMAGES & TEXT
-              - The parent `div` below is `relative` and has a defined height.
-                This is your "artboard" for this composition.
-              - All children are `absolute` and positioned relative
-                to this parent.
-            -->
             <div class="relative w-full max-w-4xl mx-auto h-[600px]">
                 
-                <!-- 
-                  ITEM 1: A PNG image (Layer 1 - Bottom)
-                  - `absolute`
-                  - `top-10 left-10` (positions it)
-                  - `w-1/2` (responsive width)
-                --><img 
-                    src="assets/img/gallery/untitled1.png"
+                <img 
+                    src="assets/img/gallery/untitled1.webp"
                     alt="placeholder png 1"
                     class="absolute top-[0%] left-0 w-[70%] md:w-[70%] md:left-[-20%] opacity-1"
                 >
                 
-                <!-- 
-                  ITEM 2: Another PNG (Layer 2 - Middle)
-                  - Positioned to overlap Item 1
-                  - `top-40 left-1/4`
-                  - `z-10` (to ensure it's on top of Item 1)
-                --><img 
-                    src="assets/img/gallery/cars/IMG_20251026_140734_511.jpg" 
+                <img 
+                    src="assets/img/gallery/cars/IMG_20251026_140734_511.webp" 
                     alt="placeholder png 2"
                     class="absolute top-[50%] md:top-[10%] left-[40%] md:left-[45%] w-[60%] md:w-[70%] shadow-lg z-10"
                 >
 
-                <!-- 
-                  ITEM 2: Another PNG (Layer 2 - Middle)
-                  - Positioned to overlap Item 1
-                  - `top-40 left-1/4`
-                  - `z-10` (to ensure it's on top of Item 1)
-                --><img 
-                src="assets/img/gallery/photo3b.png" 
+                <img 
+                src="assets/img/gallery/photo3b.webp" 
                 alt="placeholder png 2"
                 class="absolute top-[90%] md:top-[130%] left-[10%] md:left-[40%] w-[70%] shadow-lg z-10"
                 >
 
-                <!-- 
-                  ITEM 3: Freely placed text (Layer 3 - Top) - NO BOX
-                  - `absolute`
-                  - `bottom-20 right-10`
-                  - `z-20` (on top of everything)
-                --><div class="relative top-[125%] md:top-[150%] right-[-0%] md:right-[15%] z-20">
+                <div class="relative top-[125%] md:top-[150%] right-[-0%] md:right-[15%] z-20">
                     <h3 class="text-2xl text-white">Objects of Desire</h3>
                     <p class="text-gray-300 mt-2 max-w-xs">
                       This project captures the essence of modern icons, speed, scent, and style. Each piece is a super-realistic digital sculpture, meticulously crafted to blur the line between the physical and the virtual.
@@ -244,22 +163,20 @@
 
             </div>
 
-            <!-- More gallery items can go here --></div>
-    </section>
+            </div>
+</section>
 
-    <section id="hotsauce" class="relative w-full min-h-[1450px] md:min-h-[2800px] py-20 md:py-32 overflow-hidden">
+<section id="hotsauce" class="relative w-full min-h-[1450px] md:min-h-[2800px] py-20 md:py-32 overflow-hidden">
       <img 
-      src="assets/img/gallery/sauce/chetan-kolte-AFZQfsKbvCc-unsplash.jpg" 
+      src="assets/img/gallery/sauce/chetan-kolte-AFZQfsKbvCc-unsplash.webp" 
       alt="abstract background" 
       class="section-bg-image"
       >
       <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
         <h2 class="text-4xl md:text-5xl mb-16 flex justify-center items-center gap-4">
-          <!-- The text is now a child of the flex container -->
           <span>hot sauce</span>
           
-          <!-- Your APNG placeholder -->
           <img 
               src="assets/img/Fire.png" 
               alt="animated png" 
@@ -269,26 +186,26 @@
 
       <div class="relative w-full max-w-4xl mx-auto h-[600px]">
               <img 
-              src="assets/img/gallery/sauce/Render v2_7.png"
+              src="assets/img/gallery/sauce/Render v2_7.webp"
               alt="placeholder png 1"
               class="absolute top-[0%] left-[-0%] w-[70%] md:w-[70%] opacity-1"
           >
               <img 
-              src="assets/img/gallery/sauce/Render v2_3.png" 
+              src="assets/img/gallery/sauce/Render v2_3.webp" 
               alt="placeholder png 2"
               class="absolute top-[40%] md:top-[90%] left-[40%] md:left-[60%] w-[60%] md:w-[70%] z-10"
           >
               <img 
-              src="assets/img/gallery/sauce/Render v2_5.png" 
+              src="assets/img/gallery/sauce/Render v2_5.webp" 
               alt="placeholder png 2"
               class="absolute top-[70%] md:top-[180%] left-[0%] md:left-[-0%] w-[70%] z-10"
           >
               <img 
-              src="assets/img/gallery/sauce/Render v2_6.png" 
+              src="assets/img/gallery/sauce/Render v2_6.webp" 
               alt="placeholder png 2"
               class="absolute top-[110%] md:top-[270%] left-[30%] md:left-[60%] w-[70%] z-10"
           >
-            <div class="relative top-[165%] md:top-[385%] right-[-0%] z-20">
+            <div class="relative top-[165%] md:top-[385%] right-[-0%] md:right-[-60%] z-20">
               <h3 class="text-2xl text-white">Conceptual Bottle Design for a Gourmet Hot Sauce Brand</h3>
               <p class="text-gray-300 mt-2 max-w-full">
                 This project involved the conceptualization and 3D modeling of a unique bottle and packaging for a new hot sauce brand. The primary goal was to create a distinctive and ergonomic form that would stand out on a competitive shelf.
@@ -300,17 +217,15 @@
 
 <section id="cars" class="relative w-full min-h-[2650px] md:min-h-[4800px] py-20 md:py-32 overflow-hidden">
   <img 
-  src="assets/img/gallery/cars/josep-martins-l3-erg8nPRU-unsplash.jpg" 
+  src="assets/img/gallery/cars/josep-martins-l3-erg8nPRU-unsplash.webp" 
   alt="abstract background" 
   class="section-bg-image"
   >
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
   
     <h2 class="text-4xl md:text-5xl mb-16 flex justify-center items-center gap-4">
-      <!-- The text is now a child of the flex container -->
       <span>cars</span>
       
-      <!-- Your APNG placeholder -->
       <img 
           src="assets/img/Money-Mouth Face.png" 
           alt="animated png" 
@@ -320,7 +235,7 @@
 
   <div class="relative w-full max-w-4xl mx-auto h-[600px]">
           <img 
-          src="assets/img/gallery/cars/Timeline 1_01_00_00_00_1.1.1.png"
+          src="assets/img/gallery/cars/Timeline 1_01_00_00_00_1.1.1.webp"
           alt="placeholder png 1"
           class="absolute top-[0%] left-[-0%] w-[70%] md:w-[70%] opacity-1"
       >
@@ -330,18 +245,17 @@
       muted
       loop
       class="absolute shadow-xl top-[40%] md:top-[100%] left-[40%] md:left-[60%] w-[60%] z-10"
-      poster="assets/img/gallery/cars/Still 2025-05-28 071820_1.1.3.png"
+      poster="assets/img/gallery/cars/Still 2025-05-28 071820_1.1.3.webp"
   >
-      <!-- Video source -->
       <source src="assets/img/gallery/footage/bugatti.mp4" type="video/mp4" />
   </video>
           <img 
-          src="assets/img/gallery/cars/untitled4.png" 
+          src="assets/img/gallery/cars/untitled4.webp" 
           alt="placeholder png 2"
           class="absolute top-[100%] md:top-[250%] left-[0%] md:left-[-20%] w-[90%] z-10"
       >
           <img 
-          src="assets/img/gallery/cars/IMG_20251026_140734_556.jpg" 
+          src="assets/img/gallery/cars/IMG_20251026_140734_556.webp" 
           alt="placeholder png 2"
           class="absolute top-[128%] md:top-[320%] left-[10%] md:left-[20%] w-[90%] z-10"
       >
@@ -352,22 +266,22 @@
           </p>
         </div>
         <img 
-          src="assets/img/gallery/cars/AM-option1-rearView-rgb.jpg" 
+          src="assets/img/gallery/cars/AM-option1-rearView-rgb.webp" 
           alt="placeholder png 2"
           class="absolute top-[225%] md:top-[460%] left-[0%] md:left-[-20%] w-[90%] z-10"
       >
           <img 
-          src="assets/img/gallery/cars/AM-option1-frontView-rgb.jpg" 
+          src="assets/img/gallery/cars/AM-option1-frontView-rgb.webp" 
           alt="placeholder png 2"
           class="absolute top-[255%] md:top-[530%] left-[10%] md:left-[30%] w-[90%] z-10"
       >
       <img 
-          src="assets/img/gallery/cars/AM-option2-rearView-rgb.jpg" 
+          src="assets/img/gallery/cars/AM-option2-rearView-rgb.webp" 
           alt="placeholder png 2"
           class="absolute top-[290%] md:top-[610%] left-[0%] md:left-[-20%] w-[90%] z-10"
       >
           <img 
-          src="assets/img/gallery/cars/AM-option2-frontView-rgb.jpg" 
+          src="assets/img/gallery/cars/AM-option2-frontView-rgb.webp" 
           alt="placeholder png 2"
           class="absolute top-[320%] md:top-[670%] left-[10%] md:left-[30%] w-[90%] z-10"
       >
@@ -383,17 +297,15 @@
 
 <section id="space" class="relative w-full min-h-[1700px] md:min-h-[3320px] py-20 md:py-32 overflow-hidden">
   <img 
-  src="https://placehold.co/1920x1080/000000/000000.png" 
+  src="https://placehold.co/1920x1080/000000/000000.webp" 
   alt="abstract background" 
   class="section-bg-image"
   >
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
   
     <h2 class="text-4xl md:text-5xl mb-16 flex justify-center items-center gap-4">
-      <!-- The text is now a child of the flex container -->
       <span>space</span>
       
-      <!-- Your APNG placeholder -->
       <img 
           src="assets/img/New Moon Face.png" 
           alt="animated png" 
@@ -403,9 +315,9 @@
 
   <div class="relative w-full max-w-4xl mx-auto h-[600px]">
           <img 
-          src="assets/img/gallery/space/Moon-5.png"
+          src="assets/img/gallery/space/Moon-5.webp"
           alt="placeholder png 1"
-          class="absolute top-[-20%] md:top-[-30%] left-[-0%] w-screen opacity-1 z-[-1]"
+          class="absolute top-[-33%] md:top-[-43%] left-[-0%] w-screen opacity-1 z-[-1]"
       >
       <video 
       id="player1" 
@@ -414,13 +326,12 @@
       loop
       muted
       class="absolute shadow-xl top-[5%] md:top-[50%] left-[0] w-screen z-10"
-      poster="assets/img/gallery/space/poster.png"
+      poster="assets/img/gallery/space/poster.webp"
   >
-      <!-- Video source -->
       <source src="assets/img/gallery/footage/solar-eclipse-632-ad.mp4" type="video/mp4" />
   </video>
           <img 
-          src="assets/img/gallery/space/Moon-3.png" 
+          src="assets/img/gallery/space/Moon-3.webp" 
           alt="placeholder png 2"
           class="absolute top-[130%] md:top-[350%] left-[0%] w-screen z-10"
       >
@@ -431,7 +342,7 @@
         </p>
       </div>
           <img 
-          src="assets/img/gallery/space/Render1.png" 
+          src="assets/img/gallery/space/Render1.webp" 
           alt="placeholder png 2"
           class="absolute top-[222%] md:top-[430%] left-[0%] w-screen opacity-30 z-10"
       >
@@ -439,19 +350,209 @@
   </div>
 </section>
 
-<section id="robot" class="relative w-full min-h-[1880px] md:min-h-screen py-20 md:py-32 overflow-hidden">
+<section id="apple" class="relative w-full min-h-[2350px] md:min-h-[4400px] py-20 md:py-32 overflow-hidden">
   <img 
-  src="assets/img/gallery/robot/jean-philippe-delberghe-75xPHEQBmvA-unsplash.jpg" 
+  src="https://placehold.co/1920x1080/000000/000000?text" 
   alt="abstract background" 
   class="section-bg-image"
   >
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
   
     <h2 class="text-4xl md:text-5xl mb-16 flex justify-center items-center gap-4">
-      <!-- The text is now a child of the flex container -->
+      <span>Apple</span>
+      
+      <img 
+          src="assets/img/Red Apple.png" 
+          alt="animated png" 
+          class="w-12 h-12 md:w-16 md:h-16"
+      >
+    </h2>
+
+  <div class="relative w-full max-w-4xl mx-auto h-[600px]">
+          <img 
+          src="assets/img/gallery/fab/mac-Render_1.webp"
+          alt="placeholder png 1"
+          class="absolute shadow-xl top-[0%] left-[-0%] w-[90%] md:w-[90%] opacity-1"
+      >
+          <img 
+          src="assets/img/gallery/fab/mac-Render_2.webp" 
+          alt="placeholder png 2"
+          class="absolute shadow-xl top-[35%] md:top-[80%] left-[10%] md:left-[10%] w-[90%] z-10"
+      >
+          <img 
+          src="assets/img/gallery/fab/mac-Render_3.webp" 
+          alt="placeholder png 2"
+          class="absolute shadow-xl top-[64%] md:top-[150%] left-[0%] md:left-[-10%] w-[90%] z-10"
+      >
+      <img 
+      src="assets/img/gallery/fab/mac-Render_4.webp" 
+      alt="placeholder png 2"
+      class="absolute shadow-xl top-[93%] md:top-[220%] left-[10%] md:left-[20%] w-[90%] z-10"
+  >
+  <img 
+  src="assets/img/gallery/fab/mac-Render_5.webp" 
+  alt="placeholder png 2"
+  class="absolute shadow-xl top-[121%] md:top-[290%] left-[0%] md:left-[-20%] w-[90%] z-10"
+>
+        <div class="relative top-[160%] md:top-[375%] right-[-0%] md:right-[20%] z-20">
+          <h3 class="text-2xl text-white">Mini. Redefined</h3>
+          <p class="text-gray-300 mt-2 max-w-full">
+            A 3D product showcase exploring the compact power and minimalist form of the Apple Mac mini. This series of renders captures the essence of Apple's design philosophy through photorealistic materials and lighting.
+          </p>
+        </div>
+        <img 
+          src="assets/img/gallery/fab/apple-pencil-pro-5.webp" 
+          alt="placeholder png 2"
+          class="absolute top-[200%] md:top-[420%] left-[0%] md:left-[-20%] w-[90%] z-10"
+      >
+          <img 
+          src="assets/img/gallery/fab/apple-pencil-pro-4.webp" 
+          alt="placeholder png 2"
+          class="absolute shadow-xl top-[230%] md:top-[480%] left-[10%] md:left-[30%] w-[90%] z-10"
+      >
+      <img 
+          src="assets/img/gallery/fab/apple-pencil-pro-2.webp" 
+          alt="placeholder png 2"
+          class="absolute rounded-3xl shadow-xl top-[258%] md:top-[550%] left-[0%] md:left-[-20%] w-[90%] z-10"
+      >
+          <img 
+          src="assets/img/gallery/fab/apple-pencil-pro-1.webp" 
+          alt="placeholder png 2"
+          class="absolute rounded-3xl shadow-xl top-[280%] md:top-[600%] left-[10%] md:left-[30%] w-[90%] z-10"
+      >
+      <div class="relative top-[290%] md:top-[620%] right-[-0%] md:right-[20%] z-20">
+        <h3 class="text-2xl text-white">The Catalyst</h3>
+        <p class="text-gray-300 mt-2 max-w-xs">
+          A photorealistic showcase of the tool that bridges the gap between digital and traditional art. This project highlights the minimalist design and tactile precision of the Apple Pencil, capturing the essence of creativity.
+        </p>
+      </div>
+  </div>
+  </div>
+</section>
+
+<section id="piphone" class="relative w-full min-h-[1500px] md:min-h-[2850px] py-20 md:py-32 overflow-hidden">
+  <img 
+  src="https://placehold.co/1920x1080/000000/000000?text" 
+  alt="abstract background" 
+  class="section-bg-image"
+  >
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  
+    <h2 class="text-4xl md:text-5xl mb-16 flex justify-center items-center gap-4">
+      <span>PiPhone</span>
+      
+      <img 
+          src="assets/img/Shushing Face.png" 
+          alt="animated png" 
+          class="w-12 h-12 md:w-16 md:h-16"
+      >
+    </h2>
+
+  <div class="relative w-full max-w-4xl mx-auto h-[600px]">
+          <img 
+          src="assets/img/gallery/fab/render_7.webp"
+          alt="placeholder png 1"
+          class="absolute shadow-xl top-[0%] left-[-0%] w-[90%] md:w-[90%] opacity-1"
+      >
+          <img 
+          src="assets/img/gallery/fab/render_3 (2).webp" 
+          alt="placeholder png 2"
+          class="absolute shadow-xl top-[35%] md:top-[80%] left-[10%] md:left-[10%] w-[90%] z-10"
+      >
+          <img 
+          src="assets/img/gallery/fab/render_2 (2).webp" 
+          alt="placeholder png 2"
+          class="absolute shadow-xl top-[70%] md:top-[160%] left-[0%] md:left-[-10%] w-[90%] z-10"
+      >
+      <img 
+      src="assets/img/gallery/fab/render_5 (2).webp" 
+      alt="placeholder png 2"
+      class="absolute shadow-xl top-[105%] md:top-[240%] left-[10%] md:left-[20%] w-[90%] z-10"
+  >
+  <img 
+  src="assets/img/gallery/fab/render_6.webp" 
+  alt="placeholder png 2"
+  class="absolute shadow-xl top-[140%] md:top-[320%] left-[0%] md:left-[-20%] w-[90%] z-10"
+>
+        <div class="relative top-[180%] md:top-[405%] right-[-0%] md:right-[20%] z-20">
+          <h3 class="text-2xl text-white">Meet PiPhone.</h3>
+          <p class="text-gray-300 mt-2 max-w-full">
+            A personal project to design, model, and render a conceptual smartphone. This 3D showcase emulates the visual language of a high-end product launch, focusing on super-realistic materials, studio lighting, and a flawless finish.
+          </p>
+        </div>
+  </div>
+  </div>
+</section>
+
+<section id="youtube" class="relative w-full py-20 md:py-32 overflow-hidden">
+
+  <img 
+      src="https://placehold.co/1920x1080/d63031/d63031?text=+" 
+      alt="abstract background" 
+      class="section-bg-image"
+  >
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <h2 class="text-4xl md:text-5xl mb-16 flex justify-center items-center gap-4">
+        <img 
+        src="assets/img/youtube.webp" 
+        alt="Play Button Icon" 
+        class="w-[40%] md:w-[20%] -translate-y-[1.5px] md:-translate-y-[5px]"
+        >
+        <span>showcase</span>
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+          <div class="flex flex-col">
+              <div class="aspect-video w-full rounded-lg overflow-hidden shadow-xl">
+                <iframe 
+                  class="w-full h-full" 
+                  src="https://www.youtube.com/embed/9HYbAJO1nII" 
+                  title="YouTube video player" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <h3 class="text-xl md:text-2xl text-white mt-6">The Wonders of Water: Archimedes' Principle and Beyond</h3>
+                <p class="text-gray-300 mt-2">
+                  This video explores the fascinating properties of water, beginning with Archimedes' principle and how it was used to determine the purity of a king's crown. The scientific visualizations were brought to life using a combination of Blender for 3D modeling, Manim powered by Python for the mathematical animations, and Adobe After Effects for 2D graphics and visual effects. Final editing and assembly were completed in Adobe Premiere Pro.
+                </p>
+          </div>
+
+
+          <div class="flex flex-col">
+              <div class="aspect-video w-full rounded-lg overflow-hidden shadow-xl">
+                <iframe 
+                  class="w-full h-full" 
+                  src="https://www.youtube.com/embed/48zP7exWEHg"
+                  title="YouTube video player" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <h3 class="text-xl md:text-2xl text-white mt-6">short example</h3>
+              <p class="text-gray-300 mt-2">
+                This short showcases the key scientific animations from my full-length explainer video, presented without narration to highlight the visual storytelling.
+              </p>
+          </div>
+
+          </div></div></section>
+
+<section id="robot" class="relative w-full min-h-[1880px] md:min-h-[1400px] py-20 md:py-32 overflow-hidden">
+  <img 
+  src="assets/img/gallery/robot/jean-philippe-delberghe-75xPHEQBmvA-unsplash.webp" 
+  alt="abstract background" 
+  class="section-bg-image"
+  >
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  
+    <h2 class="text-4xl md:text-5xl mb-16 flex justify-center items-center gap-4">
       <span>robot</span>
       
-      <!-- Your APNG placeholder -->
       <img 
           src="assets/img/Robot.png" 
           alt="animated png" 
@@ -461,17 +562,17 @@
 
   <div class="relative w-full max-w-4xl mx-auto h-[600px]">
           <img 
-          src="assets/img/gallery/robot/robo3.png"
+          src="assets/img/gallery/robot/robo3.webp"
           alt="placeholder png 1"
           class="absolute top-[0%] md:top-[20%] left-[-0%] md:left-[110%] w-screen md:w-[40%] opacity-1 z-[-1]"
       >
           <img 
-          src="assets/img/gallery/robot/robo2.png" 
+          src="assets/img/gallery/robot/robo2.webp" 
           alt="placeholder png 2"
           class="absolute top-[145%] md:top-[20%] left-[0%] md:left-[0%] w-screen z-10"
       >
       <img 
-      src="assets/img/gallery/robot/robo.png" 
+      src="assets/img/gallery/robot/robo.webp" 
       alt="placeholder png 2"
       class="absolute top-[180%] md:top-[120%] left-[0%] md:left-[50%] w-screen md:w-[50%] z-10"
   >
@@ -485,19 +586,17 @@
   </div>
 </section>
 
-<section id="na" class="relative w-full min-h-[3700px] md:min-h-[6700px] py-20 md:py-32 overflow-hidden">
+<section id="na" class="relative w-full min-h-[4400px] md:min-h-[7900px] py-20 md:py-32 overflow-hidden">
   <img 
-  src="assets/img/gallery/canada/photo_2025-10-26_20-00-23.jpg" 
+  src="assets/img/gallery/canada/photo_2025-10-26_20-00-23.webp" 
   alt="abstract background" 
   class="section-bg-image"
   >
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
   
     <h2 class="text-4xl md:text-5xl mb-16 flex justify-center items-center gap-4">
-      <!-- The text is now a child of the flex container -->
       <span>more vehicles and AR!</span>
       
-      <!-- Your APNG placeholder -->
       <img 
           src="assets/img/Motor Boat.png" 
           alt="animated png" 
@@ -507,42 +606,42 @@
 
   <div class="relative w-full max-w-4xl mx-auto h-[600px]">
           <img 
-          src="assets/img/gallery/canada/IMG_20251026_152235_717.jpg"
+          src="assets/img/gallery/canada/IMG_20251026_152235_717.webp"
           alt="placeholder png 1"
           class="absolute top-[0%] md:top-[0%] left-[-0%] md:left-[-0%] w-screen md:w-[100%] opacity-1 z-[-1]"
       >
           <img 
-          src="assets/img/gallery/canada/Mercury Verado.png" 
+          src="assets/img/gallery/canada/Mercury Verado.webp" 
           alt="placeholder png 2"
           class="absolute top-[25%] md:top-[80%] left-[62%] w-[40%] z-10"
       >
       <img 
-      src="assets/img/gallery/canada/IMG_20251026_151903_604.jpg" 
+      src="assets/img/gallery/canada/IMG_20251026_151903_604.webp" 
       alt="placeholder png 2"
       class="absolute top-[55%] md:top-[150%] left-[0%] w-[70%] z-10"
   >
   <img 
-  src="assets/img/gallery/canada/IMG_20251026_152417_265.jpg" 
+  src="assets/img/gallery/canada/IMG_20251026_152417_265.webp" 
   alt="placeholder png 2"
   class="absolute top-[76%] md:top-[200%] left-[30%] w-[70%] z-10"
 >
 <img 
-src="assets/img/gallery/canada/15 Kicker - Wireframe.png" 
+src="assets/img/gallery/canada/15 Kicker - Wireframe.webp" 
 alt="placeholder png 2"
 class="absolute top-[105%] md:top-[270%] left-[50%] w-[50%] z-10"
 >
 <img 
-src="assets/img/gallery/canada/15 Kicker.png" 
+src="assets/img/gallery/canada/15 Kicker.webp" 
 alt="placeholder png 2"
 class="absolute top-[120%] md:top-[300%] left-[10%] w-[50%] z-10"
 >
 <img 
-src="assets/img/gallery/canada/IMG_20251026_152417_393.jpg" 
+src="assets/img/gallery/canada/IMG_20251026_152417_393.webp" 
 alt="placeholder png 2"
 class="absolute top-[175%] md:top-[430%] left-[0%] w-screen z-10"
 >
 <img 
-src="assets/img/gallery/canada/IMG_20251026_152417_359.jpg" 
+src="assets/img/gallery/canada/IMG_20251026_152417_359.webp" 
 alt="placeholder png 2"
 class="absolute top-[214%] md:top-[520%] left-[0%] w-screen z-10"
 >
@@ -553,7 +652,7 @@ class="absolute top-[214%] md:top-[520%] left-[0%] w-screen z-10"
         </p>
       </div>
       <img 
-      src="assets/img/gallery/canada/Pando 2.0.png" 
+      src="assets/img/gallery/canada/Pando 2.0.webp" 
       alt="placeholder png 2"
       class="absolute top-[340%] md:top-[650%] left-[0%] w-screen z-20"
   >
@@ -565,9 +664,8 @@ class="absolute top-[214%] md:top-[520%] left-[0%] w-screen z-10"
   loop
   muted
   class="absolute shadow-xl top-[360%] md:top-[700%] left-[0] w-screen z-10"
-  poster="assets/img/gallery/canada/photo_2025-10-26_20-00-23.jpg"
+  poster="assets/img/gallery/canada/vid-poster.webp"
 >
-  <!-- Video source -->
   <source src="assets/img/gallery/footage/AR VID v2.0.mp4" type="video/mp4" />
 </video>
 
@@ -580,36 +678,44 @@ class="absolute top-[214%] md:top-[520%] left-[0%] w-screen z-10"
 <a href="https://hossam3dee.github.io/5star-ar/" 
    target="_blank" 
    rel="noopener noreferrer" 
-   class="absolute top-[560%] md:top-[800%] left-1/2 -translate-x-1/2 bg-white text-gray-800 py-3 px-8 rounded-full shadow-md hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out">
+   class="absolute top-[560%] md:top-[1080%] left-1/2 -translate-x-1/2 bg-white text-gray-800 py-3 px-8 rounded-full shadow-md hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out">
     try it yourself
 </a>
+<img 
+src="assets/img/gallery/canada/3d-builder.webp" 
+alt="placeholder png 2"
+class="absolute rounded-3xl top-[585%] md:top-[1120%] left-[0%] w-screen z-10"
+>
+<div class="relative top-[500%] md:top-[1160%] right-[-0%] z-20">
+  <h3 class="text-2xl text-white">The Kingfisher 3D Configurator</h3>
+  <p class="text-gray-300 mt-2 max-w-full">
+    A real-time 3D web application designed to revolutionize the boat-buying journey. This project allows customers to interact with a high-fidelity model of the Kingfisher boat, making choices on colors, materials, and optional extras. Every selection is visualized instantly, giving the buyer the ultimate confidence and a precise preview of their final product.
+  </p>
+</div>
+<a href="https://hossam3dee.github.io/kingfisher-builder/" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="absolute top-[680%] md:top-[1250%] left-1/2 -translate-x-1/2 bg-white text-gray-800 py-3 px-8 rounded-full shadow-md hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out">
+    try it yourself
+</a>
+
   </div>
   </div>
 </section>
       
-    <section id="xometry" class="relative w-full min-h-[2400px] md:min-h-[3600px] py-20 md:py-32 overflow-hidden">
+<section id="xometry" class="relative w-full min-h-[2750px] md:min-h-[3600px] py-20 md:py-32 overflow-hidden">
           <img 
-          src="assets/img/gallery/xometry/00012.png" 
+          src="assets/img/gallery/xometry/00012.webp" 
           alt="abstract background" 
           class="section-bg-image"
           >
           <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <!-- 
-  BEFORE:
-  <h2 class="text-center text-4xl md:text-5xl mb-16">
-      Xometry
-  </h2> 
--->
-
-<!-- AFTER: -->
-<h2 class="text-4xl md:text-5xl mb-16 flex justify-center items-center gap-4">
-  <!-- The text is now a child of the flex container -->
+          <h2 class="text-4xl md:text-5xl mb-16 flex justify-center items-center gap-4">
   <span>Xometry</span>
   
-  <!-- Your APNG placeholder -->
   <img 
-      src="assets/img/Xometry Logo.png" 
+      src="assets/img/Xometry Logo.webp" 
       alt="animated png" 
       class="w-12 h-12 md:w-16 md:h-16"
   >
@@ -617,57 +723,58 @@ class="absolute top-[214%] md:top-[520%] left-[0%] w-screen z-10"
 
           <div class="relative w-full max-w-4xl mx-auto h-[600px]">
                   <img 
-                  src="assets/img/gallery/xometry/no-outline_0015.png"
+                  src="assets/img/gallery/xometry/no-outline_0015.webp"
                   alt="placeholder png 1"
-                  class="absolute top-[0%] md:top-[0%] left-[-10%] md:left-[-30%] w-[70%] md:w-[70%] opacity-1"
+                  class="absolute shadow-xl top-[0%] md:top-[0%] left-[-10%] md:left-[-30%] w-[70%] md:w-[70%] opacity-1"
               >
+              <img 
+              src="assets/img/gallery/xometry/no-outline_0003.webp" 
+              alt="placeholder png 2"
+              class="absolute shadow-xl top-[40%] md:top-[0%] left-[50%] md:left-[40%] w-[70%] z-10"
+          >
                   <img 
-                  src="assets/img/gallery/xometry/no-outline_0016.png" 
+                  src="assets/img/gallery/xometry/no-outline_0016.webp" 
                   alt="placeholder png 2"
-                  class="absolute top-[45%] md:top-[110%] left-[45%] md:left-[50%] w-[60%] md:w-[50%] z-10"
+                  class="absolute shadow-xl top-[70%] md:top-[100%] left-[-5%] md:left-[60%] w-[60%] md:w-[60%] z-10"
               >
+              <img 
+              src="assets/img/gallery/xometry/no-outline_0007.webp" 
+              alt="placeholder png 2"
+              class="absolute shadow-xl top-[100%] md:top-[110%] left-[50%] md:left-[-50%] w-[70%] z-10"
+          >
                   <img 
-                  src="assets/img/gallery/xometry/no-outline_0023.png" 
+                  src="assets/img/gallery/xometry/no-outline_0023.webp" 
                   alt="placeholder png 2"
-                  class="absolute top-[80%] md:top-[180%] left-[20%] md:left-1/2 md:-translate-x-1/2 w-[70%] z-10"
+                  class="absolute shadow-xl top-[140%] md:top-[180%] left-[-5%] md:left-1/2 md:-translate-x-1/2 w-[70%] z-10"
               >
-                  <img 
-                  src="assets/img/gallery/xometry/no-outline_0003.png" 
-                  alt="placeholder png 2"
-                  class="absolute top-[00%] md:top-[0%] left-[50%] md:left-[40%] w-[70%] z-10"
-              >
-                  <img 
-                  src="assets/img/gallery/xometry/no-outline_0007.png" 
-                  alt="placeholder png 2"
-                  class="absolute top-[45%] md:top-[110%] left-[-15%] md:left-[-30%] w-[70%] z-10"
-              >
-                <div class="relative top-[125%] md:top-[290%] right-[-0%] md:left-[10%] z-20">
+
+                <div class="relative top-[190%] md:top-[290%] right-[-0%] md:left-[15%] z-20">
                   <h3 class="text-2xl text-white">Precision Engineering: Assemblies for Xometry</h3>
                   <p class="text-gray-300 mt-2 max-w-full">
                     A project for Xometry focused on the design and development of specialized mechanical parts and functional assemblies.
                   </p>
                 </div>
                 <img 
-                  src="assets/img/gallery/xometry/Zinc Plating_v2.png" 
+                  src="assets/img/gallery/xometry/Zinc Plating_v2.webp" 
                   alt="placeholder png 2"
-                  class="absolute top-[160%] md:top-[400%] left-[10%] md:-left-1/2 md:translate-x-1/2 w-[70%] z-10"
+                  class="absolute top-[220%] md:top-[400%] left-[10%] md:-left-1/2 md:translate-x-1/2 w-[70%] z-10"
               >
                 <img 
-                  src="assets/img/gallery/xometry/Green 383 Camo_v1.png" 
+                  src="assets/img/gallery/xometry/Green 383 Camo_v1.webp" 
                   alt="placeholder png 2"
-                  class="absolute top-[200%] md:top-[400%] left-[10%] md:left-1/2 md:translate-x-1/2 w-[70%] z-10"
+                  class="absolute top-[260%] md:top-[400%] left-[10%] md:left-1/2 md:translate-x-1/2 w-[70%] z-10"
               >
                 <img 
-                  src="assets/img/gallery/xometry/MIL White_v2.png" 
+                  src="assets/img/gallery/xometry/Camo Tan_v1.webp" 
                   alt="placeholder png 2"
-                  class="absolute top-[240%] md:top-[300%] left-[10%] md:left-1/2 w-[70%] z-10"
+                  class="absolute top-[300%] md:top-[300%] left-[10%] md:left-1/2 w-[70%] z-10"
               >
                 <img 
-                  src="assets/img/gallery/xometry/Black Camo_v1.png" 
+                  src="assets/img/gallery/xometry/IMG_20251026_152133_084.webp" 
                   alt="placeholder png 2"
-                  class="absolute top-[280%] md:top-[300%] left-[10%] md:-left-1/2 w-[70%] z-10"
+                  class="absolute top-[340%] md:top-[300%] left-[10%] md:-left-1/2 w-[70%] z-10"
               >
-              <div class="relative top-[300%] md:top-[500%] right-[-0%] z-20">
+              <div class="relative top-[360%] md:top-[500%] right-[-0%] z-20">
                 <h3 class="text-2xl text-white">Advanced Surface Finishing</h3>
                 <p class="text-gray-300 mt-2 max-w-full">
                   This project involved the creation of a diverse library of high-fidelity material finishes for Xometry's digital assets. The goal was to achieve photorealistic surface qualities for client visualization and marketing.
@@ -675,21 +782,19 @@ class="absolute top-[214%] md:top-[520%] left-[0%] w-screen z-10"
               </div>
           </div>
           </div>
-    </section>
+</section>
 
-    <section id="random" class="relative w-full py-20 md:py-32 overflow-hidden">
+<section id="random" class="relative w-full py-20 md:py-32 overflow-hidden">
       <img 
-          src="https://placehold.co/1920x1080/000000/000000.png" 
+          src="https://placehold.co/1920x1080/000000/000000.webp" 
           alt="abstract background" 
           class="section-bg-image"
       >
       <div class="relative z-10 max-w-7xl mx-auto px-1 sm:px-6 lg:px-8">
       
         <h2 class="text-4xl md:text-5xl mb-16 flex justify-center items-center gap-4">
-          <!-- The text is now a child of the flex container -->
           <span>random stuff!</span>
           
-          <!-- Your APNG placeholder -->
           <img 
               src="assets/img/Ghost.png" 
               alt="animated png" 
@@ -700,132 +805,103 @@ class="absolute top-[214%] md:top-[520%] left-[0%] w-screen z-10"
           <div class="w-full max-w-4xl mx-auto">
               
               <img 
-                  src="assets/img/gallery/fab/Render_1.jpg"
+                  src="assets/img/gallery/Render_5.webp"
                   alt="placeholder png 1"
                   class="w-full mb-0"
               >
-              
-              
-              <img 
-                  src="assets/img/gallery/fab/Render_3.jpg" 
-                  alt="placeholder png 2"
+                            <img 
+                  src="assets/img/gallery/photo_2025-10-26_20-00-23.webp"
+                  alt="placeholder png 1"
                   class="w-full mb-0"
               >
-
               <img 
-              src="assets/img/gallery/fab/Render_4.jpg" 
-              alt="placeholder png 2"
+              src="assets/img/gallery/photo_2025-10-26_20-00-23 (2).webp"
+              alt="placeholder png 1"
               class="w-full mb-0"
               >
-
-              <img 
-              src="assets/img/gallery/fab/Render_5.jpg" 
-              alt="placeholder png 2"
-              class="w-full mb-0"
-              >
-            
-              
-              <img 
-                  src="assets/img/gallery/fab/apple-pencil-pro-4.png" 
-                  alt="placeholder png 2"
+                            <img 
+                  src="assets/img/gallery/photo_2025-10-26_20-00-23 (3).webp"
+                  alt="placeholder png 1"
                   class="w-full mb-0"
+              >
+              <img 
+              src="assets/img/gallery/IMG_20251026_151903_819.webp"
+              alt="placeholder png 1"
+              class="w-full mb-0"
               >
               
               <img 
-                  src="assets/img/gallery/fab/apple-pencil-pro-5.png" 
-                  alt="placeholder png 2"
-                  class="w-full mb-0"
-              >
-
-              <!-- <div class="mb-8"> <h3 class="text-2xl text-white">Apple Pencil</h3>
-                <p class="text-gray-300 mt-2 max-w-xs">
-                    awesome!
-                </p>
-            </div> -->
-              
-              <img 
-                  src="assets/img/gallery/fab/render_2 (2).png" 
-                  alt="placeholder png 2"
-                  class="w-full mb-0"
-              >
-              
-              <img 
-                  src="assets/img/gallery/fab/render_3 (2).png" 
-                  alt="placeholder png 2"
-                  class="w-full mb-0"
-              >
-
-              <img 
-              src="assets/img/gallery/fab/render_5 (2).png" 
-              alt="placeholder png 2"
+              src="assets/img/gallery/IMG_20251026_151903_748.webp"
+              alt="placeholder png 1"
               class="w-full mb-0"
-              >
+          >
 
-              <img 
-              src="assets/img/gallery/fab/render_6.png" 
-              alt="placeholder png 2"
-              class="w-full mb-0"
-              >
+          <img 
+          src="assets/img/gallery/render1 (2).webp"
+          alt="placeholder png 1"
+          class="w-full mb-0"
+      >
 
-              <img 
-              src="assets/img/gallery/fab/render_7.png" 
-              alt="placeholder png 2"
-              class="w-full mb-0"
-              >
+      <img 
+      src="assets/img/gallery/render2 (2).webp"
+      alt="placeholder png 1"
+      class="w-full mb-0"
+  >
 
-              <img 
-              src="assets/img/gallery/fab/Render_1.png" 
-              alt="placeholder png 2"
-              class="w-full mb-0"
-              >
+  <img 
+  src="assets/img/gallery/untitled.webp"
+  alt="placeholder png 1"
+  class="w-full mb-0"
+>
 
-              <img 
-              src="assets/img/gallery/fab/Render_2.png" 
-              alt="placeholder png 2"
-              class="w-full mb-0"
-              >
+<img 
+src="assets/img/gallery/untitled5.webp"
+alt="placeholder png 1"
+class="w-full mb-0"
+>
 
-              <img 
-              src="assets/img/gallery/fab/Render_3.png" 
-              alt="placeholder png 2"
-              class="w-full mb-0"
-              >
+<img 
+src="assets/img/gallery/render_1 (2).webp"
+alt="placeholder png 1"
+class="w-full mb-0"
+>
 
-              <img 
-              src="assets/img/gallery/fab/Render_4.png" 
-              alt="placeholder png 2"
-              class="w-full mb-0"
-              >
+<img 
+src="assets/img/gallery/render_2.webp"
+alt="placeholder png 1"
+class="w-full mb-0"
+>
 
-              <img 
-              src="assets/img/gallery/fab/Render_5.png" 
-              alt="placeholder png 2"
-              class="w-full mb-0"
-              >
+<img 
+src="assets/img/gallery/render_v2.webp"
+alt="placeholder png 1"
+class="w-full mb-0"
+>
 
-              <img 
-              src="assets/img/gallery/fab/untitled.png" 
-              alt="placeholder png 2"
-              class="w-full mb-0"
-              >
+<img 
+src="assets/img/gallery/perfume.webp"
+alt="placeholder png 1"
+class="w-full mb-0"
+>
 
-              <img 
-              src="assets/img/gallery/fab/untitled5.jpg" 
-              alt="placeholder png 2"
-              class="w-full mb-0"
-              >
+<img 
+src="assets/img/gallery/IMG_20251026_151903_005.webp"
+alt="placeholder png 1"
+class="w-full mb-0"
+>
+
+<img 
+src="assets/img/gallery/IMG_20251026_151903_587.webp"
+alt="placeholder png 1"
+class="w-full mb-0"
+>
           </div>
       </div>
-  </section>
+</section>
     
-    <!-- 
-      FOOTER / CONTACT SECTION
-      - (ID for navigation)
-    --><footer class="relative w-full py-16 bg-black overflow-hidden">
+    <footer class="relative w-full py-16 bg-black overflow-hidden">
         
-        <!-- 
-          Optional Section Background Image
-        --><img 
+        <img 
             src="https://placehold.co/1920x1080/000000/222222?text=contact+background" 
             alt="abstract background 4" 
             class="section-bg-image"
@@ -833,12 +909,9 @@ class="absolute top-[214%] md:top-[520%] left-[0%] w-screen z-10"
 
         <div class="relative border-t border-gray-700 pt-16 z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
             
-            <!-- Technologies Section -->
             <h3 class="text-3xl md:text-5xl mb-16 flex justify-center items-center gap-3">
-              <!-- The text is now a child of the flex container -->
               <span>my creative toolkit</span>
               
-              <!-- Your APNG placeholder -->
               <img 
                   src="assets/img/Flexed Biceps.png" 
                   alt="animated png" 
@@ -846,21 +919,17 @@ class="absolute top-[214%] md:top-[520%] left-[0%] w-screen z-10"
               >
           </h3>
             <div class="flex justify-center items-center flex-wrap gap-6 md:gap-8 mb-16">
-                <!-- 
-                  Replace src with your actual logo PNGs. 
-                  Keep the height class (h-12) for consistent sizing.
-                -->
-                <img src="assets/img/Houdini3D_icon.png" alt="Houdini Logo" class="h-12 md:h-14 w-auto" title="Houdini">
-                <img src="assets/img/blender-17.png" alt="Blender Logo" class="h-12 md:h-14 w-auto" title="Blender">
-                <img src="assets/img/unreal-engine.png" alt="Unreal Engine Logo" class="h-12 md:h-14 w-auto" title="Unreal Engine">
-                <img src="assets/img/gaea.png" alt="Gaea Logo" class="h-12 md:h-14 w-auto" title="Gaea">
-                <img src="assets/img/MD.png" alt="Marvelous Designer Logo" class="h-12 md:h-14 w-auto" title="Marvelous Designer">
-                <img src="assets/img/icons8-nuke-480.png" alt="Nuke Logo" class="h-12 md:h-14 w-auto" title="Nuke">
-                <img src="assets/img/after-effects-19.png" alt="Adobe After Effects Logo" class="h-12 md:h-14 w-auto" title="Adobe After Effects">
-                <img src="assets/img/premiere-11.png" alt="Adobe Premiere Pro Logo" class="h-12 md:h-14 w-auto" title="Adobe Premiere Pro">
-                <img src="assets/img/photoshop-85.png" alt="Adobe Photoshop Logo" class="h-12 md:h-14 w-auto" title="Adobe Photoshop">
-                <img src="assets/img/substance-3d-painter.png" alt="Substance Painter Logo" class="h-12 md:h-14 w-auto" title="Substance Painter">
-                <img src="assets/img/Python.png" alt="Python Logo" class="h-12 md:h-14 w-auto" title="Python">
+                <img src="assets/img/Houdini3D_icon.webp" alt="Houdini Logo" class="h-12 md:h-14 w-auto" title="Houdini">
+                <img src="assets/img/blender-17.webp" alt="Blender Logo" class="h-12 md:h-14 w-auto" title="Blender">
+                <img src="assets/img/unreal-engine.webp" alt="Unreal Engine Logo" class="h-12 md:h-14 w-auto" title="Unreal Engine">
+                <img src="assets/img/gaea.webp" alt="Gaea Logo" class="h-12 md:h-14 w-auto" title="Gaea">
+                <img src="assets/img/MD.webp" alt="Marvelous Designer Logo" class="h-12 md:h-14 w-auto" title="Marvelous Designer">
+                <img src="assets/img/icons8-nuke-480.webp" alt="Nuke Logo" class="h-12 md:h-14 w-auto" title="Nuke">
+                <img src="assets/img/after-effects-19.webp" alt="Adobe After Effects Logo" class="h-12 md:h-14 w-auto" title="Adobe After Effects">
+                <img src="assets/img/premiere-11.webp" alt="Adobe Premiere Pro Logo" class="h-12 md:h-14 w-auto" title="Adobe Premiere Pro">
+                <img src="assets/img/photoshop-85.webp" alt="Adobe Photoshop Logo" class="h-12 md:h-14 w-auto" title="Adobe Photoshop">
+                <img src="assets/img/substance-3d-painter.webp" alt="Substance Painter Logo" class="h-12 md:h-14 w-auto" title="Substance Painter">
+                <img src="assets/img/Python.webp" alt="Python Logo" class="h-12 md:h-14 w-auto" title="Python">
             </div>
 
             <h3 id="contact" class="text-3xl text-white mb-11">get in touch</h3>
@@ -876,9 +945,7 @@ class="absolute top-[214%] md:top-[520%] left-[0%] w-screen z-10"
               <span>hossam3dee@gmail.com</span>
             </a>
             
-            <!-- Upwork Link -->
             <a href="https://www.upwork.com/freelancers/~01ee0dc915e23d6c8d?mp_source=share" target="_blank" class="mt-11 text-xl text-gray-300 hover:text-white transition-colors flex items-center justify-center gap-2">
-                <!-- Replaced SVG with PNG Placeholder -->
                 <span>or find me on </span>
                 <img 
                     src="assets/img/upwork-1024x304.webp" 
@@ -902,10 +969,6 @@ class="absolute top-[214%] md:top-[520%] left-[0%] w-screen z-10"
         </div>
     </footer>
 
-    <!-- Plyr.io JS -->
-    <!-- <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script> -->
-    
-    <!-- Initialize Plyr -->
     <script>
       /* try {
         const player = new Plyr('#player');
@@ -916,16 +979,3 @@ class="absolute top-[214%] md:top-[520%] left-[0%] w-screen z-10"
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
