@@ -1,1062 +1,406 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hossam | Portfolio</title>
-    <link rel="icon" type="image/webp" href="assets/img/logo (2).webp"/>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hossam | 3D & Motion Design</title>
+  <link rel="icon" type="image/webp" href="assets/img/logo (2).webp" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css'>
-
-    
-    <style>
-        /* Base styles */
-        body {
-            font-family: "Montserrat", sans-serif;
-            background-color: #000000; /* bg-black */
-            color: #f9fafb; /* text-gray-50 */
-        }
-
-        /* Style for the semi-transparent section background images */
-        .section-bg-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.3;
-            z-index: -10;
-            filter: blur(3px);
-        }
-
-        /* Simple animation for the scroll-down arrow */
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(-25%);
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+            display: ['Fuzzy Bubbles', 'cursive'],
+          },
+          colors: {
+            brand: {
+              dark: '#050505',
+              accent: '#3b82f6',
+              gray: '#1f1f1f'
             }
-            50% {
-                transform: translateY(0);
-            }
+          }
         }
-        .animate-bounce-slow {
-            animation: bounce 2s infinite;
-        }
-        /*font*/
+      }
+    }
+  </script>
 
-        
-        .montserrat {
-        font-family: "Montserrat", sans-serif;
-        font-style: normal;
-        }
-        .fuzzy-bubbles-regular {
-  font-family: "Fuzzy Bubbles", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-.fuzzy-bubbles-bold {
-  font-family: "Fuzzy Bubbles", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-
-
-    </style>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-black text-gray-50">
 
-    <header class="fixed top-0 w-[92%] left-[50%] -translate-x-1/2 mt-3 shadow-xl rounded-full backdrop-blur-sm z-50 transition-all duration-300">
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16 lg:h-20">
-                
-                <div class="w-16 lg:w-24">
-                  <img 
-                  src="assets/img/logo.png" 
-                  alt="Telephone" 
-                  class="h-9 translate-y-0"
-                  >
-                    </div>
+<body class="antialiased opacity-0 bg-[#050505] text-white overflow-x-hidden selection:bg-white/20 selection:text-white">
 
-                <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <a href="#" class="text-xl lg:text-2xl whitespace-nowrap flex items-center justify-center gap-0">
-                      <img 
-                  src="assets/img/logo_h.webp" 
-                  alt="Telephone" 
-                  class="lg:h-8 h-7 -translate-y-[2px] lg:-translate-y-1 translate-x-1"
-                  >
-                      <strong>ossam</strong>
-                    </a>
-                </div>
+  <!-- Background Blobs -->
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
 
-                <nav class="flex justify-between gap-4 lg:gap-6">
-                    <a href="#contact" class="text-sm lg:text-base text-white hover:text-gray-400 transition-colors flex items-center justify-center gap-1 duration-200 bg-[#FFFFFF0D] rounded-full px-3 py-3 translate-x-1 outline-white">
-                      <i class="fa-solid fa-phone"></i>
-                      <span>contact</span>
-                    </a>
-                </nav>
-            </div>
-        </div>
-    </header>
+  <!-- Loader -->
+  <div class="loader">
+    <div class="text-5xl font-black tracking-tighter animate-pulse hero-text-gradient">HOSSAM</div>
+  </div>
 
-    <main class="relative w-full h-screen overflow-hidden">
-        
-        <video 
-            src="assets/vid/header.mp4" 
-            autoplay 
-            loop 
-            muted 
-            playsinline
-            class="absolute top-0 left-0 w-full h-full object-cover opacity-30 z-0"
-            poster="assets/img/poster.webp"
-        ></video>
-
-        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 bg-gradient-to-b from-transparent from-[85%] to-black">
-            
-            <img 
-                class="h-24 w-24 lg:h-40 lg:w-40 rounded-full object-cover mb-11 shadow-lg" 
-                src="assets/img/PP.webp" 
-                alt="Profile Picture"
-            >
-
-            <div class="flex items-center justify-center gap-4 lg:gap-6">
-                <h1 class="text-4xl lg:text-6xl lg:text-7xl tracking-wide">
-                    hi, i'm <strong>Hossam</strong>
-                </h1>
-                <img 
-                    src="assets/img/Waving Hand.png" 
-                    alt="animated png" 
-                    class="w-12 h-12 lg:w-16 lg:h-16 -translate-y-3"
-                >
-            </div>
-
-            <p class="mt-8 text-lg lg:text-2xl text-gray-300 max-w-2xl translate-y-[10px] lg:translate-y-[50px] fuzzy-bubbles-regular">
-              I help brands and creators bring ideas to life through cinematic motion graphics and 3D visuals that tell unforgettable stories.
-            </p>
-            <a href="#general">
-              <i class="fa-solid fa-angle-down fa-xl translate-y-[80px] lg:translate-y-[180px]"></i>
-          </a>
-
-    </main>
-
-    <h3 id="apps" class="text-3xl lg:text-5xl mb-16 mt-8 flex justify-center items-center gap-3">
-      <span>my <strong>creative toolkit</strong></span>
-      
-      <img 
-          src="assets/img/Flexed Biceps.png" 
-          alt="animated png" 
-          class="w-12 h-12 lg:w-16 lg:h-16"
-      >
-    </h3>
-    <div class="flex justify-center items-center flex-wrap gap-8 lg:gap-14 mb-16">
+  <!-- Floating Navigation -->
+  <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 px-6 py-3 nav-pill flex justify-center items-center w-full max-w-[90vw] md:max-w-2xl">
+    <a href="#" class="text-xl font-bold tracking-tighter flex items-center gap-1 text-white hover:text-gray-200 transition-colors">
+      <img src="assets/img/logo_h.webp" alt="H" class="h-6 translate-x-[9px] translate-y-[-2px]">
+      <span>ossam</span>
+    </a>
     
-      <a href="https://www.sidefx.com/" target="_blank" rel="noopener noreferrer">
-          <img src="assets/img/Houdini3D_icon.webp" alt="Houdini Logo" class="h-8 lg:h-14 w-auto hover:lg:h-16 duration-300" title="Houdini">
-      </a>
-      
-      <a href="https://www.blender.org/" target="_blank" rel="noopener noreferrer">
-          <img src="assets/img/blender-17.webp" alt="Blender Logo" class="h-8 lg:h-14 w-auto hover:lg:h-16 duration-300" title="Blender">
-      </a>
-      
-      <a href="https://www.unrealengine.com/" target="_blank" rel="noopener noreferrer">
-          <img src="assets/img/unreal-engine2.webp" alt="Unreal Engine Logo" class="h-8 lg:h-14 w-auto hover:lg:h-16 duration-300" title="Unreal Engine">
-      </a>
-      
-      <a href="https://quadspinner.com/gaea" target="_blank" rel="noopener noreferrer">
-          <img src="assets/img/gaea.webp" alt="Gaea Logo" class="h-8 lg:h-14 w-auto hover:lg:h-16 duration-300" title="Gaea">
-      </a>
-      
-      <a href="https://www.marvelousdesigner.com/" target="_blank" rel="noopener noreferrer">
-          <img src="assets/img/MD2.webp" alt="Marvelous Designer Logo" class="h-8 lg:h-14 w-auto hover:lg:h-16 duration-300" title="Marvelous Designer">
-      </a>
-      
-      <a href="https://www.foundry.com/products/nuke-family/nuke" target="_blank" rel="noopener noreferrer">
-          <img src="assets/img/icons8-nuke-480.webp" alt="Nuke Logo" class="h-8 lg:h-14 w-auto hover:lg:h-16 duration-300" title="Nuke">
-      </a>
-      
-      <a href="https://www.adobe.com/products/aftereffects.html" target="_blank" rel="noopener noreferrer">
-          <img src="assets/img/after-effects-19.webp" alt="Adobe After Effects Logo" class="h-8 lg:h-14 w-auto hover:lg:h-16 duration-300" title="Adobe After Effects">
-      </a>
-      
-      <a href="https://www.adobe.com/products/premiere.html" target="_blank" rel="noopener noreferrer">
-          <img src="assets/img/premiere-11.webp" alt="Adobe Premiere Pro Logo" class="h-8 lg:h-14 w-auto hover:lg:h-16 duration-300" title="Adobe Premiere Pro">
-      </a>
-      
-      <a href="https://www.adobe.com/products/photoshop.html" target="_blank" rel="noopener noreferrer">
-          <img src="assets/img/photoshop-85.webp" alt="Adobe Photoshop Logo" class="h-8 lg:h-14 w-auto hover:lg:h-16 duration-300" title="Adobe Photoshop">
-      </a>
-      
-      <a href="https://www.adobe.com/products/substance-3d-painter.html" target="_blank" rel="noopener noreferrer">
-          <img src="assets/img/substance-3d-painter.webp" alt="Substance Painter Logo" class="h-8 lg:h-14 w-auto hover:lg:h-16 duration-300" title="Substance Painter">
-      </a>
-      
-      <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">
-          <img src="assets/img/Python.webp" alt="Python Logo" class="h-8 lg:h-14 w-auto hover:lg:h-16 duration-300" title="Python">
-      </a>
-      
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">
-          <img src="assets/img/JavaScript-logo.webp" alt="JavaScript Logo" class="h-8 lg:h-14 w-auto hover:lg:h-16 duration-300" title="JavaScript">
-      </a>
-  
-  </div>
-    <div class="flex justify-center items-center"><i class="fa-solid fa-window-minimize fa-lg"></i></div>
+    <a href="#contact" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors text-white">
+      <i class="fa-solid fa-phone text-sm"></i>
+    </a>
+  </nav>
 
-<section id="general" class="relative w-full min-h-[1300px] lg:min-h-[1800px] py-20 lg:py-32 overflow-hidden font-normal">
+  <!-- Hero Section -->
+  <header class="relative h-screen w-full overflow-hidden flex flex-col items-center justify-center">
+    <!-- Background Video with Mask -->
+    <div class="absolute inset-0 z-0">
+        <video src="assets/vid/header.mp4" autoplay loop muted playsinline
+          class="w-full h-full object-cover opacity-30"></video>
+        <!-- Gradient Overlay for smooth fade -->
+        <div class="absolute inset-0 bg-gradient-to-b from-[#050505] via-transparent to-[#050505]"></div>
+        <div class="absolute inset-0 bg-black/20 backdrop-blur-[2px]"></div>
+    </div>
 
-        <img 
-            src="https://placehold.co/1920x1080/000000/000000?text" 
-            alt="abstract background" 
-            class="section-bg-image"
-        >
-
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-          <h2 class="text-4xl lg:text-5xl mb-16 flex justify-center items-center gap-4">
-            <span>super <strong>realistic</strong></span>
-            
-            <img 
-                src="assets/img/Exploding Head.png" 
-                alt="animated png" 
-                class="w-12 h-12 lg:w-16 lg:h-16"
-            >
-          </h2>
-
-            <div class="relative w-full max-w-4xl mx-auto h-[600px]">
-                
-                <img 
-                    src="assets/img/gallery/untitled1.webp"
-                    alt="placeholder png 1"
-                    class="absolute shadow-xl top-[0%] left-0 w-[70%] lg:w-[70%] lg:left-[-20%] opacity-1"
-                >
-                
-                <img 
-                    src="assets/img/gallery/cars/IMG_20251026_140734_511.webp" 
-                    alt="placeholder png 2"
-                    class="absolute shadow-xl top-[50%] lg:top-[10%] left-[40%] lg:left-[45%] w-[60%] lg:w-[70%] shadow-lg z-10"
-                >
-
-                <img 
-                src="assets/img/gallery/photo3b.webp" 
-                alt="placeholder png 2"
-                class="absolute shadow-xl top-[90%] lg:top-[130%] left-[10%] lg:left-[40%] w-[70%] shadow-lg z-10"
-                >
-                
-                <div class="relative top-[145%] lg:top-[200%] right-[-0%] lg:right-[15%] z-20">
-                  <h3 class="text-2xl text-white">objects of <strong>desire</strong></h3>
-                  <p class="text-gray-300 mt-2 max-w-lg">
-                    this project captures the essence of modern icons, speed, scent, and style. each piece is a <strong>super-realistic</strong> digital sculpture, meticulously crafted to blur the line between the physical and the virtual.
-                  </p>
-                </div>
-                
-                <img 
-                src="assets/img/gallery/cars/amg-g63.webp" 
-                alt="placeholder png 2"
-                class="absolute shadow-xl top-[112%] lg:top-[185%] left-[25%] lg:left-[60%] w-[70%] shadow-lg z-10"
-                >
-                
-
-            </div>
-
-            </div>
-            
-</section>
-
-<section id="be-amazed" class="relative w-full py-20 lg:py-32 overflow-hidden">
-
-  <img 
-      src="https://placehold.co/1920x1080/0984e3/0984e3?text=+" 
-      alt="abstract background" 
-      class="section-bg-image"
-  >
-
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <h2 class="text-4xl lg:text-5xl mb-16 flex justify-center items-center gap-4">
-        <img 
-        src="assets/img/Youtube_logo.png" 
-        alt="Play Button Icon" 
-        class="w-[20%] lg:w-[8%] -translate-y-[1.5px] lg:-translate-y-[5px]"
-        >
-        <img 
-        src="assets/img/unnamed.jpg" 
-        alt="Play Button Icon" 
-        class="w-[15%] lg:w-[5%] -translate-y-[1.5px] lg:-translate-y-[5px] rounded-full"
-        >
-        <span class="text-3xl"><strong>Be Amazed</strong></span>
-      </h2>
-
-
-          <div class="flex flex-col m-auto">
-                <video 
-                preload="none"
-                playsinline
-                controls
-                muted
-                class="relative rounded-2xl shadow-xl left-[50%] -translate-x-1/2 w-[90%] z-10"
-                poster="assets/img/gallery/be-amazed-poster.webp"
-            >
-                <source src="assets/vid/be-amazed.mp4" type="video/mp4" />
-            </video>
-              <h3 class="relative left-[50%] -translate-x-[50%] text-center text-xl lg:text-2xl text-white mt-6"><strong>3D Animator & Motion Graphics Artist @ Be Amazed</h3>
-                <p class="relative left-[50%] -translate-x-[50%] text-gray-300 mt-2 max-w-lg text-center font-normal">
-                  as a <strong>key contributor</strong> to the production pipeline for <strong>Be Amazed</strong>, one of YouTube's premier channels for fascinating scientific content, I was tasked with elevating their <strong>visual storytelling</strong> through high-quality animation and motion design. my role was to transform complex concepts into clear and captivating visuals.
-                </p>
-          </div>
-</div></section>
-
-<section id="hotsauce" class="relative w-full min-h-[1450px] lg:min-h-[2800px] py-20 lg:py-32 overflow-hidden font-normal">
-      <img 
-      src="assets/img/gallery/sauce/chetan-kolte-AFZQfsKbvCc-unsplash.webp" 
-      alt="abstract background" 
-      class="section-bg-image"
-      >
-      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-        <h2 class="text-4xl lg:text-5xl mb-16 flex justify-center items-center gap-4">
-          <span>hot <strong>sauce</strong></span>
-          
-          <img 
-              src="assets/img/Fire.png" 
-              alt="animated png" 
-              class="w-12 h-12 lg:w-16 lg:h-16"
-          >
-        </h2>
-
-      <div class="relative w-full max-w-4xl mx-auto h-[600px]">
-              <img 
-              src="assets/img/gallery/sauce/Render v2_7.webp"
-              alt="placeholder png 1"
-              class="absolute shadow-xl top-[0%] left-[-0%] w-[70%] lg:w-[70%] opacity-1"
-          >
-              <img 
-              src="assets/img/gallery/sauce/Render v2_3.webp" 
-              alt="placeholder png 2"
-              class="absolute shadow-xl top-[40%] lg:top-[90%] left-[40%] lg:left-[60%] w-[60%] lg:w-[70%] z-10"
-          >
-              <img 
-              src="assets/img/gallery/sauce/Render v2_5.webp" 
-              alt="placeholder png 2"
-              class="absolute shadow-xl top-[70%] lg:top-[180%] left-[0%] lg:left-[-0%] w-[70%] z-10"
-          >
-              <img 
-              src="assets/img/gallery/sauce/Render v2_6.webp" 
-              alt="placeholder png 2"
-              class="absolute shadow-xl top-[110%] lg:top-[270%] left-[30%] lg:left-[60%] w-[70%] z-10"
-          >
-            <div class="relative top-[160%] lg:top-[385%] right-[-0%] lg:right-[-60%] z-20">
-              <h3 class="text-2xl text-white">conceptual <strong>bottle design</strong> for a gourmet <strong class="text-[#e84118]">hot sauce </strong><i class="fa-solid fa-fire fa-fade fa-sm" style="color: #e84118;"></i> brand</h3>
-              <p class="text-gray-300 mt-2 max-w-lg">
-                this project involved the <strong>conceptualization</strong> and 3D modeling of a unique bottle and <strong>packaging</strong> for a new hot sauce brand. the primary goal was to create a distinctive and ergonomic form that would stand out on a <strong>competitive shelf</strong>.
-              </p>
-            </div>
-      </div>
-      </div>
-</section>
-
-<section id="cars" class="relative w-full min-h-[2650px] lg:min-h-[4800px] py-20 lg:py-32 overflow-hidden font-normal">
-  <img 
-  src="assets/img/gallery/cars/josep-martins-l3-erg8nPRU-unsplash.webp" 
-  alt="abstract background" 
-  class="section-bg-image"
-  >
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  
-    <h2 class="text-4xl lg:text-5xl mb-16 flex justify-center items-center gap-4">
-      <span><strong>cars</strong></span>
-      
-      <img 
-          src="assets/img/Money-Mouth Face.png" 
-          alt="animated png" 
-          class="w-12 h-12 lg:w-16 lg:h-16"
-      >
-    </h2>
-
-  <div class="relative w-full max-w-4xl mx-auto h-[600px]">
-          <img 
-          src="assets/img/gallery/cars/Timeline 1_01_00_00_00_1.1.1.webp"
-          alt="placeholder png 1"
-          class="absolute shadow-xl top-[-0%] left-[-0%] w-[70%] lg:w-[70%] opacity-1"
-      >
-      <video 
-      preload="none"
-      playsinline
-      controls
-      muted
-      class="absolute rounded-2xl shadow-xl top-[40%] lg:top-[80%] left-[40%] lg:left-[60%] w-[60%] z-10"
-      poster="assets/img/gallery/cars/Still 2025-05-28 071820_1.1.3.webp"
-  >
-      <source src="assets/img/gallery/footage/bugatti.mp4" type="video/mp4" />
-  </video>
-          <img 
-          src="assets/img/gallery/cars/untitled4.webp" 
-          alt="placeholder png 2"
-          class="absolute shadow-xl top-[105%] lg:top-[250%] left-[0%] lg:left-[-20%] w-[90%] z-10"
-      >
-          <img 
-          src="assets/img/gallery/cars/IMG_20251026_140734_556.webp" 
-          alt="placeholder png 2"
-          class="absolute shadow-xl top-[134%] lg:top-[320%] left-[10%] lg:left-[20%] w-[90%] z-10"
-      >
-        <div class="relative top-[170%] lg:top-[405%] right-[-0%] lg:right-[-20%] z-20">
-          <h3 class="text-2xl text-white">precision 3D art: high-detail <strong>Luxury Automotive</strong></h3>
-          <p class="text-gray-300 mt-2 max-w-full">
-            a deep dive into <strong>hyper-realistic automotive</strong> modeling, focusing on a luxury vehicles. the project involved meticulous attention to detail, from accurate body <strong>panel topology</strong> and intricate interior components to functional lighting and engine bay elements.
-          </p>
-        </div>
-        <img 
-          src="assets/img/gallery/cars/AM-option1-rearView-rgb.webp" 
-          alt="placeholder png 2"
-          class="absolute shadow-xl top-[225%] lg:top-[460%] left-[0%] lg:left-[-20%] w-[90%] z-10"
-      >
-          <img 
-          src="assets/img/gallery/cars/AM-option1-frontView-rgb.webp" 
-          alt="placeholder png 2"
-          class="absolute shadow-xl top-[255%] lg:top-[530%] left-[10%] lg:left-[30%] w-[90%] z-10"
-      >
-      <img 
-          src="assets/img/gallery/cars/AM-option2-rearView-rgb.webp" 
-          alt="placeholder png 2"
-          class="absolute shadow-xl top-[290%] lg:top-[610%] left-[0%] lg:left-[-20%] w-[90%] z-10"
-      >
-          <img 
-          src="assets/img/gallery/cars/AM-option2-frontView-rgb.webp" 
-          alt="placeholder png 2"
-          class="absolute shadow-xl top-[320%] lg:top-[670%] left-[10%] lg:left-[30%] w-[90%] z-10"
-      >
-      <div class="relative top-[325%] lg:top-[690%] right-[-0%] lg:right-[20%] z-20">
-        <h3 class="text-2xl text-white"><strong>automotive interior</strong> modeling</h3>
-        <p class="text-gray-300 mt-2 max-w-xs">
-          this project was a deep dive into the meticulous modeling of a classic luxury <strong>car interior</strong>. the goal was to replicate every component with absolute precision, from the dashboard stitching and instrument cluster to the seat contours and console buttons.
+    <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+      <h1 class="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter mb-2 leading-none hero-title hero-text-gradient select-none">
+        HOSSAM
+      </h1>
+      <div class="glass-panel inline-block px-8 py-3 mt-4 rounded-full">
+        <p class="text-xl md:text-2xl font-medium tracking-[0.2em] uppercase text-gray-200 hero-subtitle">
+          Motion Graphics & 3D Visuals
         </p>
       </div>
-  </div>
-  </div>
-</section>
-
-<section id="space" class="relative w-full min-h-[1700px] lg:min-h-[3320px] py-20 lg:py-32 overflow-hidden font-normal">
-  <img 
-  src="https://placehold.co/1920x1080/000000/000000.webp" 
-  alt="abstract background" 
-  class="section-bg-image"
-  >
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  
-    <h2 class="text-4xl lg:text-5xl mb-16 flex justify-center items-center gap-4">
-      <span><strong>space</strong></span>
-      
-      <img 
-          src="assets/img/New Moon Face.png" 
-          alt="animated png" 
-          class="w-12 h-12 lg:w-16 lg:h-16"
-      >
-    </h2>
-
-  <div class="relative w-full max-w-4xl mx-auto h-[600px]">
-          <img 
-          src="assets/img/gallery/space/Moon-5.webp"
-          alt="placeholder png 1"
-          class="absolute shadow-xl top-[-33%] lg:top-[-43%] left-[-0%] w-screen opacity-1 z-[-1]"
-      >
-        <video 
-            preload="none"
-            playsinline
-            controls
-            muted
-            class="absolute rounded-2xl shadow-xl top-[5%] lg:top-[50%] left-[0] w-full z-10"
-            poster="assets/img/gallery/space/poster.webp"
-        >
-            <source src="assets/img/gallery/footage/solar-eclipse-632-ad.mp4" type="video/mp4" />
-        </video>
-          <img 
-          src="assets/img/gallery/space/Moon-3.webp" 
-          alt="placeholder png 2"
-          class="absolute shadow-xl top-[130%] lg:top-[350%] left-[0%] w-screen z-10"
-      >
-      <div class="relative top-[165%] lg:top-[435%] right-[-0%] z-20">
-        <h3 class="text-2xl text-white"><strong>Python-Powered </strong><i class="fa-brands fa-python"></i> celestial mechanics: a high-accuracy <strong>Eclipse</strong> Simulator in <strong>blender</strong></h3>
-        <p class="text-gray-300 mt-2 max-w-full">
-          this project is a custom-built <strong>simulation engine</strong> that accurately <strong>predicts and visualizes astronomical eclipses directly within blender</strong>. <strong>by leveraging Python scripting</strong>, the tool processes precise orbital data to calculate the exact positions of the <strong>Earth</strong>, <strong>Moon</strong>, and <strong>Sun</strong> over time. this allows for the generation of scientifically <strong>accurate eclipse events</strong>, from the <strong>path of totality</strong> to the subtle effects of light and shadow. the project showcases a powerful fusion of <strong>procedural programming and 3D visualization</strong> to transform complex astronomical data into a compelling and educational visual experience.
-        </p>
-      </div>
-          <img 
-          src="assets/img/gallery/space/Render1.webp" 
-          alt="placeholder png 2"
-          class="absolute shadow-xl top-[222%] lg:top-[430%] left-[0%] w-screen opacity-30 z-10"
-      >
-  </div>
-  </div>
-</section>
-
-<section id="apple" class="relative w-full min-h-[2350px] lg:min-h-[4400px] py-20 lg:py-32 overflow-hidden font-normal">
-  <img 
-  src="https://placehold.co/1920x1080/000000/000000?text" 
-  alt="abstract background" 
-  class="section-bg-image"
-  >
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  
-    <h2 class="text-4xl lg:text-5xl mb-16 flex justify-center items-center gap-4">
-      <span><strong>Apple</strong></span>
-      
-      <img 
-          src="assets/img/Red Apple.png" 
-          alt="animated png" 
-          class="w-12 h-12 lg:w-16 lg:h-16"
-      >
-    </h2>
-
-  <div class="relative w-full max-w-4xl mx-auto h-[600px]">
-          <img 
-          src="assets/img/gallery/fab/mac-Render_1.webp"
-          alt="placeholder png 1"
-          class="absolute shadow-xl top-[0%] left-[-0%] w-[90%] lg:w-[90%] opacity-1"
-      >
-          <img 
-          src="assets/img/gallery/fab/mac-Render_2.webp" 
-          alt="placeholder png 2"
-          class="absolute shadow-xl top-[36%] lg:top-[80%] left-[10%] lg:left-[10%] w-[90%] z-10"
-      >
-          <img 
-          src="assets/img/gallery/fab/mac-Render_3.webp" 
-          alt="placeholder png 2"
-          class="absolute shadow-xl top-[64%] lg:top-[150%] left-[0%] lg:left-[-10%] w-[90%] z-10"
-      >
-      <img 
-      src="assets/img/gallery/fab/mac-Render_4.webp" 
-      alt="placeholder png 2"
-      class="absolute shadow-xl top-[93%] lg:top-[220%] left-[11%] lg:left-[20%] w-[90%] z-10"
-  >
-  <img 
-  src="assets/img/gallery/fab/mac-Render_5.webp" 
-  alt="placeholder png 2"
-  class="absolute shadow-xl top-[121%] lg:top-[290%] left-[0%] lg:left-[-20%] w-[90%] z-10"
->
-        <div class="relative top-[160%] lg:top-[375%] right-[-0%] lg:right-[20%] z-20">
-          <h3 class="text-2xl text-white">Mini. <strong>redefined</strong></h3>
-          <p class="text-gray-300 mt-2 max-w-3xl">
-            a 3D <strong>product showcase</strong> exploring the compact power and minimalist form of the Apple Mac mini. this series of renders captures the essence of <i class="fa-brands fa-apple"></i> Apple's design philosophy through <strong>photorealistic materials</strong> and <strong>lighting</strong>.
-          </p>
-        </div>
-        <img 
-          src="assets/img/gallery/fab/apple-pencil-pro-5.webp" 
-          alt="placeholder png 2"
-          class="absolute shadow-xl top-[200%] lg:top-[420%] left-[0%] lg:left-[-20%] w-[90%] z-10"
-      >
-          <img 
-          src="assets/img/gallery/fab/apple-pencil-pro-4.webp" 
-          alt="placeholder png 2"
-          class="absolute shadow-xl top-[230%] lg:top-[480%] left-[10%] lg:left-[30%] w-[90%] z-10"
-      >
-      <img 
-          src="assets/img/gallery/fab/apple-pencil-pro-2.webp" 
-          alt="placeholder png 2"
-          class="absolute shadow-xl rounded-lg lg:rounded-2xl shadow-xl top-[258%] lg:top-[550%] left-[0%] lg:left-[-20%] w-[90%] z-10"
-      >
-          <img 
-          src="assets/img/gallery/fab/apple-pencil-pro-1.webp" 
-          alt="placeholder png 2"
-          class="absolute shadow-xl rounded-lg lg:rounded-2xl shadow-xl top-[280%] lg:top-[600%] left-[10%] lg:left-[30%] w-[90%] z-10"
-      >
-      <div class="relative top-[290%] lg:top-[620%] right-[-0%] lg:right-[20%] z-20">
-        <h3 class="text-2xl text-white"><strong>the catalyst</strong></h3>
-        <p class="text-gray-300 mt-2 max-w-xs">
-          a <strong>photorealistic showcase</strong> of the tool that bridges the gap between digital and traditional art. This project highlights the minimalist design and tactile precision of the <strong><i class="fa-brands fa-apple"></i> Apple Pencil</strong>, capturing the essence of <strong>creativity</strong>.
-        </p>
-      </div>
-  </div>
-  </div>
-</section>
-
-<section id="piphone" class="relative w-full min-h-[1500px] lg:min-h-[2850px] py-20 lg:py-32 overflow-hidden font-normal">
-  <img 
-  src="https://placehold.co/1920x1080/000000/000000?text" 
-  alt="abstract background" 
-  class="section-bg-image"
-  >
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  
-    <h2 class="text-4xl lg:text-5xl mb-16 flex justify-center items-center gap-4">
-      <span><strong>Pi</strong>Phone</span>
-      
-      <img 
-          src="assets/img/Shushing Face.png" 
-          alt="animated png" 
-          class="w-12 h-12 lg:w-16 lg:h-16"
-      >
-    </h2>
-
-  <div class="relative w-full max-w-4xl mx-auto h-[600px]">
-          <img 
-          src="assets/img/gallery/fab/render_7.webp"
-          alt="placeholder png 1"
-          class="absolute shadow-xl top-[0%] left-[-0%] w-[90%] lg:w-[90%] opacity-1"
-      >
-          <img 
-          src="assets/img/gallery/fab/render_3 (2).webp" 
-          alt="placeholder png 2"
-          class="absolute shadow-xl top-[35%] lg:top-[80%] left-[10%] lg:left-[10%] w-[90%] z-10"
-      >
-          <img 
-          src="assets/img/gallery/fab/render_2 (2).webp" 
-          alt="placeholder png 2"
-          class="absolute shadow-xl top-[70%] lg:top-[160%] left-[0%] lg:left-[-10%] w-[90%] z-10"
-      >
-      <img 
-      src="assets/img/gallery/fab/render_5 (2).webp" 
-      alt="placeholder png 2"
-      class="absolute shadow-xl top-[105%] lg:top-[240%] left-[10%] lg:left-[20%] w-[90%] z-10"
-  >
-  <img 
-  src="assets/img/gallery/fab/render_6.webp" 
-  alt="placeholder png 2"
-  class="absolute shadow-xl top-[140%] lg:top-[320%] left-[0%] lg:left-[-20%] w-[90%] z-10"
->
-        <div class="relative top-[180%] lg:top-[405%] right-[-0%] lg:right-[20%] z-20">
-          <h3 class="text-2xl text-white">meet <strong>Pi</strong>Phone.</h3>
-          <p class="text-gray-300 mt-2 max-w-full">
-            a personal project to design, model, and render a conceptual smartphone. this 3D showcase emulates the visual language of a <strong>high-end product launch</strong>, focusing on super-realistic materials, studio lighting, and a <strong>flawless finish</strong>.
-          </p>
-        </div>
-  </div>
-  </div>
-</section>
-
-<section id="youtube" class="relative w-full py-20 lg:py-32 overflow-hidden font-normal">
-
-  <img 
-      src="https://placehold.co/1920x1080/d63031/d63031?text=+" 
-      alt="abstract background" 
-      class="section-bg-image"
-  >
-
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-normal">
-      
-      <h2 class="text-4xl lg:text-5xl mb-16 flex justify-center items-center gap-4">
-        <img 
-        src="assets/img/youtube.webp" 
-        alt="Play Button Icon" 
-        class="w-[40%] lg:w-[20%] -translate-y-[1.5px] lg:-translate-y-[5px]"
-        >
-        <span>showcase</span>
-      </h2>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-
-          <div class="flex flex-col">
-              <div class="aspect-video w-full rounded-lg overflow-hidden shadow-xl">
-                <iframe 
-                  class="w-full h-full" 
-                  src="https://www.youtube.com/embed/9HYbAJO1nII" 
-                  title="YouTube video player" 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowfullscreen>
-                </iframe>
-              </div>
-              <h3 class="text-xl lg:text-2xl text-white mt-6"><strong>The Wonders of Water</strong>: Archimedes' Principle and Beyond</h3>
-                <p class="text-gray-300 mt-2">
-                  This video explores the fascinating properties of <strong>water</strong>, beginning with <strong>Archimedes' principle</strong> and how it was used to determine the purity of a king's <strong>crown</strong>. The <strong>scientific visualizations</strong> were brought to life using a combination of <strong>Blender</strong> for <strong>3D modeling</strong>, <strong>Manim</strong> powered by <strong>Python</strong> for the <strong>mathematical animations</strong>, and <strong>Adobe After Effects</strong> for <strong>2D graphics</strong> and <strong>visual effects</strong>. Final <strong>editing</strong> and <strong>assembly</strong> were completed in <strong>Adobe Premiere Pro</strong>.
-                </p>
-          </div>
-
-
-          <div class="flex flex-col">
-              <div class="aspect-video w-full rounded-lg overflow-hidden shadow-xl">
-                <iframe 
-                  class="w-full h-full" 
-                  src="https://www.youtube.com/embed/48zP7exWEHg"
-                  title="YouTube video player" 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowfullscreen>
-                </iframe>
-              </div>
-              <h3 class="text-xl lg:text-2xl text-white mt-6"><strong>short</strong> example</h3>
-              <p class="text-gray-300 mt-2">
-                this <strong>short showcases</strong> the key scientific animations from my full-length explainer video, presented without narration to <strong>highlight the visual storytelling</strong>.
-              </p>
-          </div>
-
-          </div></div></section>
-
-<section id="robot" class="relative w-full min-h-[1400px] lg:min-h-[1400px] py-20 lg:py-32 overflow-hidden font-normal">
-  <img 
-  src="assets/img/gallery/robot/jean-philippe-delberghe-75xPHEQBmvA-unsplash.webp" 
-  alt="abstract background" 
-  class="section-bg-image"
-  >
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  
-    <h2 class="text-4xl lg:text-5xl mb-16 flex justify-center items-center gap-4">
-      <span><strong>robot</strong></span>
-      
-      <img 
-          src="assets/img/Robot.png" 
-          alt="animated png" 
-          class="w-12 h-12 lg:w-16 lg:h-16"
-      >
-    </h2>
-
-  <div class="relative w-full max-w-4xl mx-auto h-[600px]">
-          <img 
-          src="assets/img/gallery/robot/robo3.webp"
-          alt="placeholder png 1"
-          class="absolute top-[0%] lg:top-[20%] left-[50%] -translate-x-1/2 lg:translate-x-0 lg:left-[110%] w-[35%] lg:w-[40%] opacity-1 z-[-1]"
-      >
-          <img 
-          src="assets/img/gallery/robot/robo2.webp" 
-          alt="placeholder png 2"
-          class="absolute shadow-xl top-[60%] lg:top-[20%] left-[0%] lg:left-[0%] w-screen z-10"
-      >
-      <img 
-      src="assets/img/gallery/robot/robo.webp" 
-      alt="placeholder png 2"
-      class="absolute shadow-xl top-[95%] lg:top-[120%] left-[0%] lg:left-[50%] w-screen lg:w-[50%] z-10"
-  >
-      <div class="relative top-[135%] lg:top-[120%] right-[-0%] lg:left-[0] z-20">
-        <h3 class="text-2xl text-white">focus on <strong>Hard-Surface</strong> modeling</h3>
-        <p class="text-gray-300 mt-2 max-w-xs">
-          this project is a comprehensive showcase of intricate <strong>hard-surface modeling</strong> techniques. the robot was built from the ground up in <strong>blender</strong>, with a focus on creating <strong>clean topology</strong> and <strong>high-fidelity detail</strong>. every component — from the hydraulic pistons and articulated joints to the complex wiring and armor plating, was meticulously crafted to ensure <strong>mechanical believability</strong> and a high level of visual complexity.
-        </p>
-      </div>
-  </div>
-  </div>
-</section>
-
-<section id="na" class="relative w-full min-h-[4400px] lg:min-h-[7750px] py-20 lg:py-32 overflow-hidden font-normal">
-  <img 
-  src="assets/img/gallery/canada/shifaaz-shamoon.webp" 
-  alt="abstract background" 
-  class="section-bg-image"
-  >
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  
-    <h2 class="text-2xl lg:text-5xl mb-16 flex justify-center items-center gap-4">
-      <span>more <strong>vehicles</strong> and <strong>AR</strong>!</span>
-      
-      <img 
-          src="assets/img/Motor Boat.png" 
-          alt="animated png" 
-          class="w-12 h-12 lg:w-16 lg:h-16"
-      >
-    </h2>
-
-  <div class="relative w-full max-w-4xl mx-auto h-[600px]">
-          <img 
-          src="assets/img/gallery/canada/IMG_20251026_152235_717.webp"
-          alt="placeholder png 1"
-          class="absolute shadow-xl top-[0%] lg:top-[0%] left-[-0%] lg:left-[-20%] w-[70%] lg:w-[100%] opacity-1 z-[-1]"
-      >
-
-      <img 
-      src="assets/img/gallery/canada/pando.webp"
-      alt="placeholder png 1"
-      class="absolute shadow-xl top-[20%] lg:top-[75%] left-[30%] lg:left-[30%] w-[70%] lg:w-[100%] opacity-1 z-[-1]"
-  >
-  <img 
-  src="assets/img/gallery/canada/IMG_20251026_152417_265.webp" 
-  alt="placeholder png 2"
-  class="absolute shadow-xl top-[60%] lg:top-[175%] left-[5%] lg:left-[-20%] w-[70%] lg:w-[90%] z-10"
->
-          <img 
-          src="assets/img/gallery/canada/Mercury Verado.webp" 
-          alt="placeholder png 2"
-          class="absolute shadow-xl top-[50%] lg:top-[162%] left-[55%] w-[40%] z-10"
-      >
-<img 
-src="assets/img/gallery/canada/15 Kicker - Wireframe.webp" 
-alt="placeholder png 2"
-class="absolute shadow-xl top-[115%] lg:top-[270%] left-[50%] w-[50%] z-10"
->
-<img 
-src="assets/img/gallery/canada/15 Kicker.webp" 
-alt="placeholder png 2"
-class="absolute shadow-xl top-[100%] lg:top-[290%] left-[10%] w-[50%] z-10"
->
-<img 
-src="assets/img/gallery/canada/IMG_20251026_152417_393.webp" 
-alt="placeholder png 2"
-class="absolute shadow-xl top-[175%] lg:top-[430%] left-[0%] w-[70%] z-10"
->
-<img 
-src="assets/img/gallery/canada/IMG_20251026_151903_604.webp" 
-alt="placeholder png 2"
-class="absolute shadow-xl top-[197%] lg:top-[485%] left-[35%] w-[70%] z-10"
->
-<img 
-src="assets/img/gallery/canada/IMG_20251026_152417_359.webp" 
-alt="placeholder png 2"
-class="absolute shadow-xl top-[219%] lg:top-[540%] left-[0%] w-[70%] z-10"
->
-      <div class="relative top-[255%] lg:top-[615%] right-[-0%] z-20">
-        <h3 class="text-2xl text-white mb-6">adventure on the water & land: <strong>photorealistic</strong> CGI for the <strong>Marine Industry</strong></h3>
-        <p class="text-gray-300 mt-2 max-w-full">
-          this project was focused on creating compelling, lifestyle-oriented <strong>marketing visuals</strong> for the <strong>recreational boating</strong> market. I was responsible for creating a <strong>complete scene</strong> featuring boats from KingFisher and Campion, rigged with Yamaha and Mercury motors, and paired with Off Grid Trailers. the goal was to produce stunning, <strong>photorealistic renders</strong> that capture the excitement of a day on the lake, using <strong>advanced lighting</strong>, <strong>water simulation</strong>, and texturing techniques in <strong>blender</strong> to create imagery ready for a catalog or <strong>advertising campaign</strong>.
-        </p>
-      </div>
-      <img 
-      src="assets/img/gallery/canada/Pando 2.0.webp" 
-      alt="placeholder png 2"
-      class="absolute top-[340%] lg:top-[650%] left-[0%] w-screen z-20"
-  >
-
-    <video 
-    preload="none"
-    playsinline
-    controls
-    muted
-    class="absolute rounded-2xl shadow-xl top-[360%] lg:top-[700%] left-[0] w-screen z-10"
-    poster="assets/img/gallery/canada/vid-poster.webp"
-    >
-      <source src="assets/img/gallery/footage/AR VID v2.0.mp4" type="video/mp4" />
-    </video>
-
-<div class="relative top-[420%] lg:top-[995%] right-[-0%] z-20">
-  <h3 class="text-2xl text-white"><strong>AR</strong> product visualization: <strong>Off Grid Trailers'</strong> Switchback interactive preview</h3>
-  <p class="text-gray-300 mt-2 max-w-full">
-    this project involved the design and development of an <strong>Augmented Reality (AR) application</strong> for Off Grid Trailers, allowing prospective customers to <strong>virtually preview</strong> the "Switchback" model in their own environment. the core challenge was to <strong>optimize high-fidelity 3D assets</strong> for <strong>real-time mobile AR performance</strong> while ensuring accurate scaling and <strong>realistic rendering</strong>.
-  </p>
-</div>
-<a href="https://hossam3dee.github.io/5star-ar/" 
-   target="_blank" 
-   rel="noopener noreferrer" 
-   class="absolute top-[560%] lg:top-[1065%] left-1/2 -translate-x-1/2 bg-white text-gray-800 py-3 px-6 rounded-full shadow-md hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out">
-    try AR <i class="fa-solid fa-chevron-right fa-xs"></i>
-</a>
-<img 
-src="assets/img/gallery/canada/3d-builder.webp" 
-alt="placeholder png 2"
-class="absolute shadow-xl rounded-3xl top-[585%] lg:top-[1090%] left-[0%] w-screen z-10"
->
-<div class="relative top-[492%] lg:top-[1130%] right-[-0%] z-20">
-  <h3 class="text-2xl text-white">the <strong>Kingfisher</strong> 3D configurator</h3>
-  <p class="text-gray-300 mt-2 max-w-full">
-    A <strong>real-time 3D web application</strong> designed to revolutionize the boat-buying journey. this project allows customers to <strong>interact</strong> with a <strong>high-fidelity model</strong> of the Kingfisher boat, making choices on colors, materials, and optional extras. Every selection is <strong>visualized instantly</strong>, giving the buyer the ultimate confidence and a <strong>precise preview</strong> of their final product.
-  </p>
-</div>
-<a href="https://hossam3dee.github.io/kingfisher-builder/" 
-   target="_blank" 
-   rel="noopener noreferrer" 
-   class="absolute top-[680%] lg:top-[1220%] left-1/2 -translate-x-1/2 bg-white text-gray-800 py-3 px-6 rounded-full shadow-md hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out">
-    try 3D builder <i class="fa-solid fa-chevron-right fa-xs"></i>
-</a>
-
-  </div>
-  </div>
-</section>
-      
-<section id="xometry" class="relative w-full min-h-[2960px] lg:min-h-[3600px] py-20 lg:py-32 overflow-hidden font-normal">
-          <img 
-          src="assets/img/gallery/xometry/00012.webp" 
-          alt="abstract background" 
-          class="section-bg-image"
-          >
-          <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <h2 class="text-4xl lg:text-5xl mb-16 flex justify-center items-center gap-4">
-  <span><strong>Xometry</strong></span>
-  
-  <img 
-      src="assets/img/Xometry Logo.webp" 
-      alt="animated png" 
-      class="w-12 h-12 lg:w-16 lg:h-16"
-  >
-</h2>
-
-          <div class="relative w-full max-w-4xl mx-auto h-[600px]">
-                  <img 
-                  src="assets/img/gallery/xometry/no-outline_0015.webp"
-                  alt="placeholder png 1"
-                  class="absolute shadow-xl top-[0%] lg:top-[0%] left-[-10%] lg:left-[-30%] w-[70%] lg:w-[70%] opacity-1"
-              >
-              <img 
-              src="assets/img/gallery/xometry/no-outline_0003.webp" 
-              alt="placeholder png 2"
-              class="absolute shadow-xl top-[40%] lg:top-[40%] left-[50%] lg:left-[35%] w-[70%] z-10"
-          >
-                  <img 
-                  src="assets/img/gallery/xometry/no-outline_0016.webp" 
-                  alt="placeholder png 2"
-                  class="absolute shadow-xl top-[70%] lg:top-[138%] left-[-5%] lg:left-[80%] w-[60%] lg:w-[60%] z-10"
-              >
-              <img 
-              src="assets/img/gallery/xometry/no-outline_0007.webp" 
-              alt="placeholder png 2"
-              class="absolute shadow-xl top-[100%] lg:top-[110%] left-[50%] lg:left-[-50%] w-[70%] z-10"
-          >
-                  <img 
-                  src="assets/img/gallery/xometry/no-outline_0023.webp" 
-                  alt="placeholder png 2"
-                  class="absolute shadow-xl top-[140%] lg:top-[180%] left-[-5%] lg:left-1/2 lg:-translate-x-1/2 w-[70%] z-10"
-              >
-
-                <div class="relative top-[190%] lg:top-[290%] right-[-0%] lg:left-[15%] z-20">
-                  <h3 class="text-2xl text-white">precision engineering: <strong>assemblies</strong> for <strong>Xometry</strong></h3>
-                  <p class="text-gray-300 mt-2 max-w-full">
-                    a project for <strong>Xometry</strong> focused on the <strong>design and development</strong> of <strong>specialized mechanical parts</strong> and <strong>functional assemblies</strong>.
-                  </p>
-                </div>
-                <img 
-                  src="assets/img/gallery/xometry/Zinc Plating_v2.webp" 
-                  alt="placeholder png 2"
-                  class="absolute shadow-xl top-[220%] lg:top-[400%] left-[10%] lg:-left-1/2 lg:translate-x-1/2 w-[70%] z-10"
-              >
-                <img 
-                  src="assets/img/gallery/xometry/Green 383 Camo_v1.webp" 
-                  alt="placeholder png 2"
-                  class="absolute shadow-xl top-[260%] lg:top-[400%] left-[10%] lg:left-1/2 lg:translate-x-1/2 w-[70%] z-10"
-              >
-                <img 
-                  src="assets/img/gallery/xometry/Camo Tan_v1.webp" 
-                  alt="placeholder png 2"
-                  class="absolute shadow-xl top-[300%] lg:top-[300%] left-[10%] lg:left-1/2 w-[70%] z-10"
-              >
-                <img 
-                  src="assets/img/gallery/xometry/IMG_20251026_152133_084.webp" 
-                  alt="placeholder png 2"
-                  class="absolute shadow-xl top-[340%] lg:top-[300%] left-[10%] lg:-left-1/2 w-[70%] z-10"
-              >
-              <div class="relative top-[360%] lg:top-[500%] right-[-0%] z-20">
-                <h3 class="text-2xl text-white">advanced <strong>surface finishing</strong></h3>
-                <p class="text-gray-300 mt-2 max-w-full">
-                  this project for Xometry involved the meticulous creation of a <strong>comprehensive digital material library</strong>, showcasing a wide range of <strong>high-fidelity finishes</strong>. the primary goal was to achieve true-to-life, <strong>photorealistic surface qualities</strong> — from brushed metals and textured plastics to specialized coatings — for use across the company's digital assets. By developing each material with precise attention to <strong>texture, reflectivity, and color accuracy</strong>, this library now serves as a critical tool for both accurate <strong>client visualization</strong> and the creation of compelling, <strong>high-impact marketing</strong> content.
-                </p>
-              </div>
-          </div>
-          </div>
-</section>
-
-<section id="random" class="relative w-full py-20 lg:py-32 overflow-hidden font-normal">
-      <img 
-          src="https://placehold.co/1920x1080/000000/000000.webp" 
-          alt="abstract background" 
-          class="section-bg-image"
-      >
-      <div class="relative z-10 max-w-7xl mx-auto px-1 sm:px-6 lg:px-8">
-      
-        <h2 class="text-4xl lg:text-5xl mb-16 flex justify-center items-center gap-4">
-          <span><strong>random stuff!</strong></span>
-          
-          <img 
-              src="assets/img/Ghost.png" 
-              alt="animated png" 
-              class="w-12 h-12 lg:w-16 lg:h-16"
-          >
-        </h2>
-  
-          <div class="w-full max-w-4xl mx-auto">
-              
-              <img 
-                  src="assets/img/gallery/lady.webp"
-                  alt="placeholder png 1"
-                  class="shadow-xl w-full mb-0"
-              >
-               <img 
-                  src="assets/img/gallery/bmwm8.webp"
-                  alt="placeholder png 1"
-                  class="w-full mb-0 shadow-xl"
-              >
-              <img 
-              src="assets/img/gallery/watch.webp"
-              alt="placeholder png 1"
-              class="w-full mb-0 shadow-xl"
-              >
-              
-              <img 
-              src="assets/img/gallery/port.webp"
-              alt="placeholder png 1"
-              class="w-full mb-0 shadow-xl"
-          >
-
-          <img 
-          src="assets/img/gallery/speaker.webp"
-          alt="placeholder png 1"
-          class="w-full mb-0 shadow-xl"
-      >
-
-  <img 
-  src="assets/img/gallery/oreo.webp"
-  alt="placeholder png 1"
-  class="w-full mb-0 shadow-xl"
->
-
-<img 
-src="assets/img/gallery/creditcard.webp"
-alt="placeholder png 1"
-class="w-full mb-0 shadow-xl"
->
-
-<img 
-src="assets/img/gallery/perfume.webp"
-alt="placeholder png 1"
-class="w-full mb-20 shadow-xl"
->
-<img 
-src="assets/img/gallery/bracelet.webp"
-alt="placeholder png 1"
-class="w-full -mb-20 shadow-xl"
->
-          </div>
-      </div>
-</section>
+    </div>
     
-    <footer class="relative w-full py-16 bg-black overflow-hidden font-normal">
-        
-        <img 
-            src="https://placehold.co/1920x1080/000000/222222?text=contact+background" 
-            alt="abstract background 4" 
-            class="section-bg-image"
-        >
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+      <i class="fa-solid fa-arrow-down text-xl text-white/50"></i>
+    </div>
+  </header>
 
-        <div class="relative border-t border-gray-800 pt-8 z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
-
-            <h3 id="contact" class="text-2xl lg:text-3xl text-white mb-2 font-bold" ><strong><span>let's schedule a meeting  <i class="fa-solid fa-video fa-sm"></i></span></strong></h3>
-            <p class="text-sm lg:text-lg mb-11 fuzzy-bubbles-regular">
-              •    we will build something great together    •
-            </p>
-            <a href="mailto:hossam3dee@gmail.com" target="_blank" class="flex justify-center items-center gap-2 text-xl text-gray-300 hover:text-white transition-colors">
-              <img 
-              src="assets/img/Gmail.png" 
-              alt="animated png" 
-              class="w-5 lg:w-5"
-              >
-              <span><strong>hossam3dee</strong>@gmail.com</span>
-            </a>
-            
-            <a href="https://www.upwork.com/freelancers/~01ee0dc915e23d6c8d?mp_source=share" target="_blank" class="mt-11 text-xl text-gray-300 hover:text-white transition-colors flex items-center justify-center gap-2">
-              <img 
-                    src="assets/img/Backhand Index Pointing Right.png" 
-                    alt="pointing" 
-                    class="h-6 translate-y-0"
-                >  
-              <span>or find me on </span>
-                <img 
-                    src="assets/img/upwork-1024x304.webp" 
-                    alt="Upwork Logo" 
-                    class="h-5 translate-y-0.5"
-                ><i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i>
-            </a>
-
-            <div class="mt-8 border-t border-gray-800 pt-8 font-light">
-                <div class="flex justify-center items-center flex-wrap gap-2 lg:gap-2 mb-8">
-                    <p>&copy; 2025 all rights reserved.</p>
-                    <span>built & designed with <i class="fa-solid fa-heart fa-sm"></i> by Hossam</span>
-                  </div>
-                  <div class="flex justify-center justify-center">
-                  <img 
-                          src="assets/img/logo (2).webp" 
-                          alt="Envelope" 
-                          class="h-20 -translate-y-0"
-                          >
-                        </div>
-                </div>
+  <!-- About Section -->
+  <section id="about" class="py-32 px-6 relative z-10">
+    <div class="max-w-6xl mx-auto">
+        <div class="glass-panel p-8 md:p-12 flex flex-col md:flex-row items-center gap-12">
+            <div class="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white/10 shadow-2xl flex-shrink-0 relative group">
+                <div class="absolute inset-0 bg-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+                <img src="assets/img/PP.webp" alt="Hossam" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+            </div>
+            <div class="flex-1 text-center md:text-left">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 flex items-center justify-center md:justify-start gap-4">
+                Hi, I'm Hossam <img src="assets/img/Waving Hand.png" alt="Wave" class="w-10 h-10 animate-pulse inline-block">
+                </h2>
+                <p class="text-lg md:text-xl text-gray-300 leading-relaxed font-display text-balance">
+                I help brands and creators bring ideas to life through <span class="text-white font-semibold">cinematic motion graphics</span> and <span class="text-white font-semibold">3D visuals</span> that tell unforgettable stories. I blend technical precision with artistic vision.
+                </p>
+            </div>
         </div>
-    </footer>
+
+        <!-- Toolkit -->
+        <div class="mt-24">
+            <h3 class="text-2xl font-bold mb-10 text-center md:text-left flex items-center gap-3 justify-center md:justify-start opacity-80">
+                <i class="fa-solid fa-layer-group text-blue-500"></i> Creative Toolkit
+            </h3>
+            <div class="flex flex-wrap justify-center md:justify-start gap-6 md:gap-8">
+                <!-- Icons wrapped in glass bubbles -->
+                <div class="group p-4 glass-panel rounded-2xl flex items-center justify-center w-20 h-20 md:w-24 md:h-24 hover:bg-white/10 transition-all cursor-default">
+                    <img src="assets/img/Houdini3D_icon.webp" class="h-10 md:h-12 w-auto tool-icon" title="Houdini">
+                </div>
+                <div class="group p-4 glass-panel rounded-2xl flex items-center justify-center w-20 h-20 md:w-24 md:h-24 hover:bg-white/10 transition-all cursor-default">
+                    <img src="assets/img/blender-17.webp" class="h-10 md:h-12 w-auto tool-icon" title="Blender">
+                </div>
+                <div class="group p-4 glass-panel rounded-2xl flex items-center justify-center w-20 h-20 md:w-24 md:h-24 hover:bg-white/10 transition-all cursor-default">
+                    <img src="assets/img/unreal-engine2.webp" class="h-10 md:h-12 w-auto tool-icon" title="Unreal Engine">
+                </div>
+                <div class="group p-4 glass-panel rounded-2xl flex items-center justify-center w-20 h-20 md:w-24 md:h-24 hover:bg-white/10 transition-all cursor-default">
+                    <img src="assets/img/gaea.webp" class="h-10 md:h-12 w-auto tool-icon" title="Gaea">
+                </div>
+                <div class="group p-4 glass-panel rounded-2xl flex items-center justify-center w-20 h-20 md:w-24 md:h-24 hover:bg-white/10 transition-all cursor-default">
+                    <img src="assets/img/MD2.webp" class="h-10 md:h-12 w-auto tool-icon" title="Marvelous Designer">
+                </div>
+                <div class="group p-4 glass-panel rounded-2xl flex items-center justify-center w-20 h-20 md:w-24 md:h-24 hover:bg-white/10 transition-all cursor-default">
+                    <img src="assets/img/icons8-nuke-480.webp" class="h-10 md:h-12 w-auto tool-icon" title="Nuke">
+                </div>
+                <div class="group p-4 glass-panel rounded-2xl flex items-center justify-center w-20 h-20 md:w-24 md:h-24 hover:bg-white/10 transition-all cursor-default">
+                    <img src="assets/img/after-effects-19.webp" class="h-10 md:h-12 w-auto tool-icon" title="After Effects">
+                </div>
+                <div class="group p-4 glass-panel rounded-2xl flex items-center justify-center w-20 h-20 md:w-24 md:h-24 hover:bg-white/10 transition-all cursor-default">
+                    <img src="assets/img/premiere-11.webp" class="h-10 md:h-12 w-auto tool-icon" title="Premiere Pro">
+                </div>
+                <div class="group p-4 glass-panel rounded-2xl flex items-center justify-center w-20 h-20 md:w-24 md:h-24 hover:bg-white/10 transition-all cursor-default">
+                    <img src="assets/img/photoshop-85.webp" class="h-10 md:h-12 w-auto tool-icon" title="Photoshop">
+                </div>
+                <div class="group p-4 glass-panel rounded-2xl flex items-center justify-center w-20 h-20 md:w-24 md:h-24 hover:bg-white/10 transition-all cursor-default">
+                    <img src="assets/img/substance-3d-painter.webp" class="h-10 md:h-12 w-auto tool-icon" title="Substance Painter">
+                </div>
+                <div class="group p-4 glass-panel rounded-2xl flex items-center justify-center w-20 h-20 md:w-24 md:h-24 hover:bg-white/10 transition-all cursor-default">
+                    <img src="assets/img/Python.webp" class="h-10 md:h-12 w-auto tool-icon" title="Python">
+                </div>
+                <div class="group p-4 glass-panel rounded-2xl flex items-center justify-center w-20 h-20 md:w-24 md:h-24 hover:bg-white/10 transition-all cursor-default">
+                    <img src="assets/img/JavaScript-logo.webp" class="h-10 md:h-12 w-auto tool-icon" title="JavaScript">
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Work Section -->
+  <section id="work" class="py-20 px-4 md:px-10 relative z-10">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex items-baseline justify-between mb-16 border-b border-white/10 pb-4">
+            <h2 class="text-5xl md:text-7xl font-black tracking-tighter hero-text-gradient">SELECTED WORK</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- Project 1: Objects of Desire -->
+        <div class="group relative aspect-[4/3] overflow-hidden glass-panel cursor-pointer project-card" data-id="objects-of-desire">
+            <img src="assets/img/gallery/untitled1.webp" alt="Objects of Desire"
+            class="w-full h-full object-cover project-img">
+            <div class="absolute inset-0 project-card-overlay flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="text-3xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Objects of Desire</h3>
+            <p class="text-gray-300 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Digital sculpture & icons</p>
+            </div>
+        </div>
+
+        <!-- Project 2: Be Amazed -->
+        <div class="group relative aspect-[4/3] overflow-hidden glass-panel cursor-pointer project-card" data-id="be-amazed">
+            <video src="assets/vid/be-amazed.mp4" muted loop playsinline
+            class="w-full h-full object-cover project-img opacity-80 group-hover:opacity-100"
+            poster="assets/img/gallery/be-amazed-poster.webp"></video>
+            <div class="absolute inset-0 project-card-overlay flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="text-3xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Be Amazed</h3>
+            <p class="text-gray-300 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">YouTube Science Content</p>
+            </div>
+        </div>
+
+        <!-- Project 3: Hot Sauce -->
+        <div class="group relative aspect-[4/3] overflow-hidden glass-panel cursor-pointer project-card" data-id="hot-sauce">
+            <img src="assets/img/gallery/sauce/Render v2_7.webp" alt="Hot Sauce"
+            class="w-full h-full object-cover project-img">
+            <div class="absolute inset-0 project-card-overlay flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="text-3xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Hot Sauce</h3>
+            <p class="text-gray-300 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Bottle Design</p>
+            </div>
+        </div>
+
+        <!-- Project 4: Automotive Precision -->
+        <div class="group relative aspect-[4/3] overflow-hidden glass-panel cursor-pointer project-card" data-id="automotive-precision">
+            <video src="assets/img/gallery/footage/bugatti.mp4" muted loop playsinline
+            class="w-full h-full object-cover project-img opacity-80 group-hover:opacity-100"
+            poster="assets/img/gallery/cars/Still 2025-05-28 071820_1.1.3.webp"></video>
+            <div class="absolute inset-0 project-card-overlay flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="text-3xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Automotive Precision</h3>
+            <p class="text-gray-300 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Luxury Vehicle Modeling</p>
+            </div>
+        </div>
+
+        <!-- Project 5: Automotive Interior -->
+        <div class="group relative aspect-[4/3] overflow-hidden glass-panel cursor-pointer project-card" data-id="automotive-interior">
+            <img src="assets/img/gallery/cars/AM-option1-rearView-rgb.webp" alt="Automotive Interior"
+            class="w-full h-full object-cover project-img">
+            <div class="absolute inset-0 project-card-overlay flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="text-3xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Automotive Interior</h3>
+            <p class="text-gray-300 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Detailed Interiors</p>
+            </div>
+        </div>
+
+        <!-- Project 6: Celestial Mechanics -->
+        <div class="group relative aspect-[4/3] overflow-hidden glass-panel cursor-pointer project-card" data-id="celestial-mechanics">
+            <video src="assets/img/gallery/footage/solar-eclipse-632-ad.mp4" muted loop playsinline
+            class="w-full h-full object-cover project-img opacity-80 group-hover:opacity-100"
+            poster="assets/img/gallery/space/poster.webp"></video>
+            <div class="absolute inset-0 project-card-overlay flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="text-3xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Celestial Mechanics</h3>
+            <p class="text-gray-300 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Python & Blender Simulation</p>
+            </div>
+        </div>
+
+        <!-- Project 7: Mini. Redefined -->
+        <div class="group relative aspect-[4/3] overflow-hidden glass-panel cursor-pointer project-card" data-id="mini-redefined">
+            <img src="assets/img/gallery/fab/mac-Render_1.webp" alt="Mac Mini"
+            class="w-full h-full object-cover project-img">
+            <div class="absolute inset-0 project-card-overlay flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="text-3xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Mini. Redefined</h3>
+            <p class="text-gray-300 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Product Visualization</p>
+            </div>
+        </div>
+
+        <!-- Project 8: The Catalyst -->
+        <div class="group relative aspect-[4/3] overflow-hidden glass-panel cursor-pointer project-card" data-id="the-catalyst">
+            <img src="assets/img/gallery/fab/apple-pencil-pro-5.webp" alt="Apple Pencil"
+            class="w-full h-full object-cover project-img">
+            <div class="absolute inset-0 project-card-overlay flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="text-3xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">The Catalyst</h3>
+            <p class="text-gray-300 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Apple Pencil Pro</p>
+            </div>
+        </div>
+
+        <!-- Project 9: PiPhone -->
+        <div class="group relative aspect-[4/3] overflow-hidden glass-panel cursor-pointer project-card" data-id="piphone">
+            <img src="assets/img/gallery/fab/render_7.webp" alt="PiPhone"
+            class="w-full h-full object-cover project-img">
+            <div class="absolute inset-0 project-card-overlay flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="text-3xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">PiPhone</h3>
+            <p class="text-gray-300 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Concept Design</p>
+            </div>
+        </div>
+
+        <!-- Project 10: Wonders of Water -->
+        <div class="group relative aspect-[4/3] overflow-hidden glass-panel cursor-pointer project-card" data-id="wonders-of-water">
+            <img src="https://img.youtube.com/vi/9HYbAJO1nII/maxresdefault.jpg" alt="Wonders of Water"
+            class="w-full h-full object-cover project-img">
+            <div class="absolute inset-0 project-card-overlay flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="text-3xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Wonders of Water</h3>
+            <p class="text-gray-300 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Scientific Visualization</p>
+            </div>
+        </div>
+
+        <!-- Project 11: Short Example -->
+        <div class="group relative aspect-[4/3] overflow-hidden glass-panel cursor-pointer project-card" data-id="short-example">
+            <img src="https://img.youtube.com/vi/48zP7exWEHg/maxresdefault.jpg" alt="Short Example"
+            class="w-full h-full object-cover project-img">
+            <div class="absolute inset-0 project-card-overlay flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="text-3xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Short Example</h3>
+            <p class="text-gray-300 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Motion Reel</p>
+            </div>
+        </div>
+
+        <!-- Project 12: Hard-Surface Robot -->
+        <div class="group relative aspect-[4/3] overflow-hidden glass-panel cursor-pointer project-card" data-id="hard-surface-robot">
+            <img src="assets/img/gallery/robot/robo2.webp" alt="Robot"
+            class="w-full h-full object-cover project-img">
+            <div class="absolute inset-0 project-card-overlay flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="text-3xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Hard-Surface Robot</h3>
+            <p class="text-gray-300 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Mecha Modeling</p>
+            </div>
+        </div>
+
+        <!-- Project 13: Marine & AR -->
+        <div class="group relative aspect-[4/3] overflow-hidden glass-panel cursor-pointer project-card md:col-span-2" data-id="marine-ar">
+            <video src="assets/img/gallery/footage/AR VID v2.0.mp4" muted loop playsinline
+            class="w-full h-full object-cover project-img opacity-80 group-hover:opacity-100"
+            poster="assets/img/gallery/canada/pando.webp"></video>
+            <div class="absolute inset-0 project-card-overlay flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="text-3xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Marine & AR</h3>
+            <p class="text-gray-300 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">CGI & Augmented Reality</p>
+            </div>
+        </div>
+
+        <!-- Project 14: Xometry Assemblies -->
+        <div class="group relative aspect-[4/3] overflow-hidden glass-panel cursor-pointer project-card" data-id="xometry-assemblies">
+            <img src="assets/img/gallery/xometry/no-outline_0023.webp" alt="Xometry Assemblies"
+            class="w-full h-full object-cover project-img">
+            <div class="absolute inset-0 project-card-overlay flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="text-3xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Xometry Assemblies</h3>
+            <p class="text-gray-300 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Engineering</p>
+            </div>
+        </div>
+
+        <!-- Project 15: Xometry Finishes -->
+        <div class="group relative aspect-[4/3] overflow-hidden glass-panel cursor-pointer project-card" data-id="xometry-finishes">
+            <img src="assets/img/gallery/xometry/Zinc Plating_v2.webp" alt="Xometry Finishes"
+            class="w-full h-full object-cover project-img">
+            <div class="absolute inset-0 project-card-overlay flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="text-3xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Xometry Finishes</h3>
+            <p class="text-gray-300 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Material Library</p>
+            </div>
+        </div>
+
+        <!-- Project 16: Random Stuff -->
+        <div class="group relative aspect-[4/3] overflow-hidden glass-panel cursor-pointer project-card" data-id="random-stuff">
+            <img src="assets/img/gallery/watch.webp" alt="Random"
+            class="w-full h-full object-cover project-img">
+            <div class="absolute inset-0 project-card-overlay flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="text-3xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Random Stuff</h3>
+            <p class="text-gray-300 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Experiments</p>
+            </div>
+        </div>
+
+        </div>
+    </div>
+  </section>
+
+  <!-- Contact Footer -->
+  <footer id="contact" class="py-32 px-6 text-center relative overflow-hidden z-10">
+    <div class="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent pointer-events-none"></div>
+    <div class="relative z-10 max-w-4xl mx-auto glass-panel p-12 md:p-20">
+      <h2 class="text-4xl md:text-6xl font-black mb-8 hero-text-gradient">Let's Build Something Great</h2>
+      <p class="text-gray-400 mb-12 text-lg">Ready to bring your vision to life?</p>
+
+      <div class="flex justify-center">
+        <a href="mailto:hossam3dee@gmail.com"
+            class="inline-flex items-center justify-center gap-3 text-sm md:text-2xl font-bold hover:text-blue-400 transition-colors mb-12 border-b border-white/20 pb-2 hover:border-blue-400 max-w-full overflow-hidden whitespace-nowrap text-ellipsis">
+            <img src="assets/img/Gmail.png" alt="Gmail" class="w-5 md:w-8 flex-shrink-0">
+            <span>hossam3dee@gmail.com</span>
+        </a>
+      </div>
+
+      <div class="flex justify-center gap-8 mb-16">
+        <a href="https://www.upwork.com/freelancers/~01ee0dc915e23d6c8d?mp_source=share" target="_blank"
+          class="flex items-center gap-2 text-gray-300 hover:text-white transition-colors px-6 py-3 border border-white/10 rounded-full hover:bg-white/5">
+          <span>Find me on </span>
+          <img src="assets/img/upwork-1024x304.webp" alt="Upwork" class="h-5 opacity-80">
+        </a>
+      </div>
+
+      <div class="border-t border-white/10 pt-8 text-gray-500 text-xs uppercase tracking-widest">
+        <p>&copy; 2025 Hossam. All rights reserved.</p>
+        <p class="mt-2">Designed with <i class="fa-solid fa-heart text-red-500 animate-pulse"></i></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox"
+    class="fixed inset-0 z-[100] lightbox-backdrop hidden flex justify-center items-center opacity-0 transition-opacity duration-500 p-4">
+    
+    <div class="relative w-full max-w-7xl h-[85vh] glass-panel overflow-hidden flex flex-col md:flex-row shadow-2xl">
+
+      <button id="lightbox-close"
+        class="absolute top-6 right-6 z-50 text-white/50 hover:text-white text-2xl transition-colors w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10">&times;</button>
+
+      <!-- Media Section -->
+      <div class="w-full md:w-3/4 bg-black/40 flex items-center justify-center relative group h-1/2 md:h-full">
+        <div id="lightbox-media-container" class="w-full h-full flex items-center justify-center p-4">
+          <!-- Media injected here -->
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button id="prev-media"
+          class="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 hover:text-white hover:scale-125 transition-all text-4xl p-4 hidden">&lsaquo;</button>
+        <button id="next-media"
+          class="absolute right-4 top-1/2 -translate-y-1/2 text-white/30 hover:text-white hover:scale-125 transition-all text-4xl p-4 hidden">&rsaquo;</button>
+      </div>
+
+      <!-- Details Section -->
+      <div class="w-full md:w-1/4 p-8 overflow-y-auto bg-black/20 border-l border-white/5 h-1/2 md:h-full">
+        <h2 id="lightbox-title" class="text-2xl font-bold mb-6 text-white hero-text-gradient">Project Title</h2>
+        <div id="lightbox-description" class="text-gray-300 leading-relaxed text-sm space-y-4 font-light">
+          <!-- Description injected here -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>
