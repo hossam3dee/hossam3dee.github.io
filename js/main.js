@@ -452,3 +452,6 @@ document.addEventListener('keydown', (e) => {
         renderMedia();
     }
 });
+
+// Dynamic Year
+document.getElementById('year').textContent = new Date().getFullYear();
