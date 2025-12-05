@@ -133,16 +133,11 @@ body {
 
 /* Toolkit Icons */
 .tool-icon {
-    transition: all 0.3s ease;
-    filter: grayscale(100%);
-    opacity: 0.6;
+    transition: transform 0.3s ease;
 }
 
 .tool-icon:hover {
-    filter: grayscale(0%);
-    opacity: 1;
-    transform: scale(1.1) translateY(-5px);
-    filter: drop-shadow(0 0 8px rgba(255,255,255,0.3));
+    transform: scale(1.1);
 }
 
 /* Lightbox */
