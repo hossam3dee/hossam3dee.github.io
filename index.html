@@ -369,7 +369,40 @@
     </div>
   </footer>
 
-  <!-- Lightbox Modal -->
+  <!-- Project View Overlay (New "Page" Mode) -->
+  <div id="project-view" class="fixed inset-0 z-[100] bg-[#050505] hidden overflow-y-auto opacity-0 transition-opacity duration-500">
+    
+    <!-- Navigation / Header -->
+    <div class="sticky top-0 z-50 w-full glass-panel-sharp px-6 py-4 flex justify-between items-center mb-8 bg-black/50 backdrop-blur-md border-b border-white/10">
+      <div class="text-xl font-bold tracking-tighter">
+        <span class="hero-text-gradient" id="pv-header-title">Project Name</span>
+      </div>
+      <button id="pv-close" class="text-white/70 hover:text-white transition-colors flex items-center gap-2 px-4 py-2 rounded-full hover:bg-white/10">
+        <span class="hidden md:inline text-sm uppercase tracking-widest">Close</span>
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Content Container -->
+    <div class="max-w-5xl mx-auto px-6 pb-32">
+        
+        <!-- Project Header Info -->
+        <div class="mb-16 text-center max-w-3xl mx-auto">
+            <h1 id="pv-title" class="text-4xl md:text-6xl font-black tracking-tighter mb-6 hero-text-gradient mt-10">Project Title</h1>
+            <div id="pv-description" class="text-gray-300 text-lg leading-relaxed font-light space-y-4">
+                <!-- Description injected here -->
+            </div>
+        </div>
+
+        <!-- Stacked Media Grid -->
+        <div id="pv-media-container" class="space-y-24">
+            <!-- Media items with descriptions injected here -->
+        </div>
+
+    </div>
+  </div>
+
+  <!-- Lightbox Modal (Legacy - Kept but unused if replaced) -->
   <div id="lightbox"
     class="fixed inset-0 z-[100] lightbox-backdrop hidden flex justify-center items-center opacity-0 transition-opacity duration-500 p-4">
     

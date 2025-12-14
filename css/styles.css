@@ -56,6 +56,14 @@ body {
     box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.6);
 }
 
+.glass-panel-sharp {
+    background: rgba(5, 5, 5, 0.85); /* Darker for header */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
 /* Floating Nav Pill */
 .nav-pill {
     background: rgba(10, 10, 10, 0.6);
@@ -150,4 +158,15 @@ body {
 /* Utilities */
 .text-balance {
     text-wrap: balance;
+}
+
+/* Video Badge Animation */
+.video-indicator {
+    animation: pulse-badge 2s infinite;
+}
+
+@keyframes pulse-badge {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+    70% { box-shadow: 0 0 0 6px rgba(255, 255, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
