@@ -209,7 +209,7 @@ function renderProjectStack(project) {
         if (mediaItem.type === 'image') {
             element = document.createElement('img');
             element.src = mediaItem.src;
-            element.className = 'w-full h-auto object-contain block';
+            element.className = 'w-full max-h-[80vh] object-contain block mx-auto';
             element.loading = "lazy";
         } else if (mediaItem.type === 'video') {
             element = document.createElement('video');
@@ -219,7 +219,7 @@ function renderProjectStack(project) {
             element.autoplay = false;
             element.muted = false;
             element.playsInline = true;
-            element.className = 'w-full h-auto block';
+            element.className = 'w-full max-h-[80vh] object-contain block mx-auto';
         } else if (mediaItem.type === 'youtube') {
             const aspectWrapper = document.createElement('div');
             aspectWrapper.className = 'relative w-full aspect-video';
