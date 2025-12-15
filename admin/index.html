@@ -6,8 +6,12 @@
     <title>Portfolio Admin</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Font: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #0f0f0f; color: #e0e0e0; font-family: sans-serif; }
+        body { background-color: #0f0f0f; color: #e0e0e0; font-family: 'Montserrat', sans-serif; }
         .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
         .input-dark { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 0.5rem; border-radius: 0.25rem; width: 100%; }
         .input-dark:focus { outline: none; border-color: #3b82f6; }
@@ -20,6 +24,11 @@
         .btn-secondary:hover { background: #4b5563; }
         .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 50; display: none; justify-content: center; align-items: center; }
         .modal.active { display: flex; }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1a1a1a; }
+        ::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #666; }
     </style>
 </head>
 <body class="p-8 pb-32 max-w-6xl mx-auto">
@@ -64,12 +73,18 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-sm text-gray-400 mb-1">Thumbnail Image Path</label>
-                        <input type="text" id="field-thumb" class="input-dark" placeholder="assets/img/...">
+                        <label class="block text-sm text-gray-400 mb-1">Thumbnail Image</label>
+                        <div class="flex gap-2">
+                            <input type="text" id="field-thumb" class="input-dark" placeholder="assets/img/...">
+                            <button type="button" class="btn btn-secondary px-3" onclick="triggerFileSelect('field-thumb', 'assets/img/gallery')"><i class="fa-solid fa-folder-open"></i></button>
+                        </div>
                     </div>
                     <div>
-                        <label class="block text-sm text-gray-400 mb-1">Thumbnail Video Path (Optional)</label>
-                        <input type="text" id="field-thumbVid" class="input-dark" placeholder="assets/vid/...">
+                        <label class="block text-sm text-gray-400 mb-1">Thumbnail Video</label>
+                        <div class="flex gap-2">
+                            <input type="text" id="field-thumbVid" class="input-dark" placeholder="assets/vid/...">
+                            <button type="button" class="btn btn-secondary px-3" onclick="triggerFileSelect('field-thumbVid', 'assets/vid')"><i class="fa-solid fa-folder-open"></i></button>
+                        </div>
                     </div>
                 </div>
 
@@ -98,9 +113,14 @@
         </div>
     </div>
 
+    <!-- Hidden File Input for Uploads -->
+    <input type="file" id="global-file-input" style="display: none;">
+
     <script>
         let posts = [];
         let editingIndex = -1;
+        let activeInputId = null;
+        let activeUploadFolder = 'assets/img/gallery';
 
         const API_URL = '/api/posts';
 
@@ -158,11 +178,9 @@
             const newIndex = index + direction;
             if (newIndex < 0 || newIndex >= posts.length) return;
             
-            // Swap
             const temp = posts[index];
             posts[index] = posts[newIndex];
             posts[newIndex] = temp;
-            
             renderList();
         }
 
@@ -211,9 +229,7 @@
             } else {
                 form.reset();
                 renderMediaInputs([]);
-                // Generate a random ID placeholder or leave empty
             }
-            
             modal.classList.add('active');
         }
 
@@ -229,25 +245,85 @@
         }
 
         function addMediaItem(item = { type: 'image', src: '' }) {
+            // Generate a unique ID for the input field to target it with the file picker
+            const uniqueId = 'media-input-' + Date.now() + Math.random().toString(36).substr(2, 9);
+            
             const div = document.createElement('div');
             div.className = 'grid grid-cols-12 gap-2 items-center bg-black/20 p-2 rounded';
             div.innerHTML = `
-                <select class="input-dark col-span-3 text-xs media-type">
+                <select class="input-dark col-span-3 text-xs media-type" onchange="toggleBrowseBtn(this, '${uniqueId}-btn')">
                     <option value="image" ${item.type === 'image' ? 'selected' : ''}>Image</option>
                     <option value="video" ${item.type === 'video' ? 'selected' : ''}>Video</option>
                     <option value="youtube" ${item.type === 'youtube' ? 'selected' : ''}>YouTube</option>
                 </select>
-                <input type="text" class="input-dark col-span-8 text-xs media-src" value="${item.src || ''}" placeholder="Source Path / ID">
-                <button type="button" onclick="this.parentElement.remove()" class="col-span-1 text-red-500 hover:text-red-400 text-center"><i class="fa-solid fa-times"></i></button>
+                <div class="col-span-8 flex gap-2">
+                     <input type="text" id="${uniqueId}" class="input-dark text-xs media-src w-full" value="${item.src || ''}" placeholder="Source Path / ID">
+                     <button type="button" id="${uniqueId}-btn" class="btn btn-secondary px-2 text-xs" 
+                        onclick="triggerFileSelect('${uniqueId}', 'assets/img/gallery')" 
+                        style="${item.type === 'youtube' ? 'display:none' : ''}">
+                        <i class="fa-solid fa-folder-open"></i>
+                     </button>
+                </div>
+                <button type="button" onclick="this.parentElement.parentElement.remove()" class="col-span-1 text-red-500 hover:text-red-400 text-center"><i class="fa-solid fa-times"></i></button>
             `;
             mediaListEl.appendChild(div);
         }
+
+        function toggleBrowseBtn(selectEl, btnId) {
+            const btn = document.getElementById(btnId);
+            if(selectEl.value === 'youtube') {
+                btn.style.display = 'none';
+            } else {
+                btn.style.display = 'block';
+                // Update folder based on type? Optional, but defaults to gallery for now.
+            }
+        }
+
+        // File Selection Logic
+        const fileInput = document.getElementById('global-file-input');
+        
+        function triggerFileSelect(targetInputId, folder) {
+            activeInputId = targetInputId;
+            activeUploadFolder = folder;
+            fileInput.value = ''; // Reset
+            fileInput.click();
+        }
+
+        fileInput.addEventListener('change', async () => {
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                const inputEl = document.getElementById(activeInputId);
+                
+                // Show loading state?
+                const originalPlaceholder = inputEl.placeholder;
+                inputEl.placeholder = "Uploading...";
+                
+                try {
+                    // Upload the file
+                    const res = await fetch(`/api/upload?filename=${encodeURIComponent(file.name)}&folder=${encodeURIComponent(activeUploadFolder)}`, {
+                        method: 'POST',
+                        body: file
+                    });
+                    
+                    if (res.ok) {
+                        const data = await res.json();
+                        inputEl.value = data.path; // Update input with web path
+                    } else {
+                        alert('Upload failed.');
+                    }
+                } catch (e) {
+                    console.error(e);
+                    alert('Upload error: ' + e.message);
+                } finally {
+                    inputEl.placeholder = originalPlaceholder;
+                }
+            }
+        });
 
         // Form Submit
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Gather Data
             const newPost = {
                 id: document.getElementById('field-id').value,
                 title: document.getElementById('field-title').value,
@@ -255,19 +331,19 @@
                 thumbnail: document.getElementById('field-thumb').value,
                 thumbnailVideo: document.getElementById('field-thumbVid').value || null,
                 description: document.getElementById('field-desc').value,
-                classes: editingIndex >= 0 ? posts[editingIndex].classes : "group relative aspect-[4/3] overflow-hidden glass-panel cursor-pointer project-card", // Preserve or default
+                classes: editingIndex >= 0 ? posts[editingIndex].classes : "group relative aspect-[4/3] overflow-hidden glass-panel cursor-pointer project-card",
                 media: []
             };
 
-            // Gather Media
-            const mediaItems = mediaListEl.querySelectorAll('div'); // The row divs
-            mediaItems.forEach(row => {
+            const mediaItems = mediaListEl.children;
+            for (let i = 0; i < mediaItems.length; i++) {
+                const row = mediaItems[i];
                 const type = row.querySelector('.media-type').value;
                 const src = row.querySelector('.media-src').value;
                 if(src) {
                     newPost.media.push({ type, src });
                 }
-            });
+            }
 
             if (editingIndex >= 0) {
                 posts[editingIndex] = newPost;
@@ -279,7 +355,6 @@
             renderList();
         });
 
-        // Start
         init();
 
     </script>

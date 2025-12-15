@@ -65,6 +65,53 @@ const server = http.createServer((req, res) => {
         return;
     }
 
+    // API: Upload File
+    if (req.method === 'POST' && req.url.startsWith('/api/upload')) {
+        const urlParams = new URL(req.url, `http://${req.headers.host}`).searchParams;
+        const filename = urlParams.get('filename');
+        const folder = urlParams.get('folder') || 'assets/img/gallery'; // Default folder
+        
+        if (!filename) {
+            res.writeHead(400, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Missing filename' }));
+            return;
+        }
+
+        // Security: Prevent directory traversal & restrict to assets
+        const safeFilename = path.basename(filename);
+        const targetDir = path.join(ROOT_DIR, folder);
+        
+        if (!targetDir.startsWith(path.join(ROOT_DIR, 'assets'))) {
+             res.writeHead(403, { 'Content-Type': 'application/json' });
+             res.end(JSON.stringify({ error: 'Invalid folder. Must be within assets/' }));
+             return;
+        }
+
+        // Ensure directory exists
+        if (!fs.existsSync(targetDir)){
+            fs.mkdirSync(targetDir, { recursive: true });
+        }
+
+        const filePath = path.join(targetDir, safeFilename);
+        const writeStream = fs.createWriteStream(filePath);
+
+        req.pipe(writeStream);
+
+        writeStream.on('finish', () => {
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            // Return path using forward slashes for web compatibility
+            const webPath = path.join(folder, safeFilename).replace(/\\/g, '/');
+            res.end(JSON.stringify({ success: true, path: webPath }));
+        });
+
+        writeStream.on('error', (err) => {
+             console.error('Upload Error:', err);
+             res.writeHead(500, { 'Content-Type': 'application/json' });
+             res.end(JSON.stringify({ error: 'Upload failed' }));
+        });
+        return;
+    }
+
     // Static Files
     let filePath;
     
