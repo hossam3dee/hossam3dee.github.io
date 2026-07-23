@@ -5,30 +5,30 @@ window.PORTFOLIO_PROJECTS = [
     "classes": "project-block glass-panel p-6 md:p-10 mb-16",
     "title": "Paris Solati",
     "shortDescription": "Luxury Visuals & 3D Artwork",
-    "thumbnail": "assets/img/gallery/Paris Solati/cover.png",
+    "thumbnail": "assets/img/gallery/paris_solati/cover.png",
     "thumbnailVideo": null,
     "thumbnailPoster": null,
     "description": "<p>A high-end visual showcase created for <strong>Paris Solati</strong>. Blending sleek aesthetics, modern luxury design, and photorealistic 3D renders.</p>",
     "media": [
       {
         "type": "image",
-        "src": "assets/img/gallery/Paris Solati/cover.png"
+        "src": "assets/img/gallery/paris_solati/cover.png"
       },
       {
         "type": "image",
-        "src": "assets/img/gallery/Paris Solati/new_blue_0001.png"
+        "src": "assets/img/gallery/paris_solati/new_blue_0001.png"
       },
       {
         "type": "image",
-        "src": "assets/img/gallery/Paris Solati/new_blue_0002.png"
+        "src": "assets/img/gallery/paris_solati/new_blue_0002.png"
       },
       {
         "type": "image",
-        "src": "assets/img/gallery/Paris Solati/new_blue_0005.png"
+        "src": "assets/img/gallery/paris_solati/new_blue_0005.png"
       },
       {
         "type": "image",
-        "src": "assets/img/gallery/Paris Solati/new_blue_0006.png"
+        "src": "assets/img/gallery/paris_solati/new_blue_0006.png"
       }
     ]
   },
@@ -56,13 +56,13 @@ window.PORTFOLIO_PROJECTS = [
     "title": "Hopecc Animation",
     "shortDescription": "3D Product Animation",
     "thumbnail": "",
-    "thumbnailVideo": "assets/img/gallery/footage/Hoppec Animation Finall 4.mp4",
+    "thumbnailVideo": "assets/img/gallery/footage/hoppec_animation.mp4",
     "thumbnailPoster": null,
     "description": "<p>Cinematic 3D product animation for <strong>Hopecc</strong>, capturing intricate materials, studio lighting, and smooth fluid motion design.</p>",
     "media": [
       {
         "type": "video",
-        "src": "assets/img/gallery/footage/Hoppec Animation Finall 4.mp4"
+        "src": "assets/img/gallery/footage/hoppec_animation.mp4"
       }
     ]
   },
