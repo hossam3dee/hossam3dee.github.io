@@ -1,0 +1,6 @@
+type: "3D Render"
+rating: "5"
+name: "Paris Solati"
+feedback: "Exceptional, went above and beyond. Incredible at realistic finishes, lighting, environment. Look forward to doing more together soon."
+website: "https://www.parissolati.com/"
+logo: "Paris_Solati.jpg"

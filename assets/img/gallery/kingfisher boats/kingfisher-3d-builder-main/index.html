@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>KingFisher 3D Interactive Configurator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link type="text/css" href="./styles.css" rel="stylesheet"/>
+    <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+  </head>
+  <body>
+    <div class="threed-container">
+      <!-- Top Left Header & Status Badge -->
+      <div class="viewer-header">
+        <div class="viewer-badge">
+          <i class="fa-solid fa-arrows-rotate"></i>
+          <span>Interactive 3D Configurator &bull; Drag to Rotate</span>
+        </div>
+      </div>
+
+      <!-- 3D Model Viewer Canvas -->
+      <div class="model-wrapper">
+        <model-viewer 
+          camera-controls 
+          src="GFX.glb" 
+          environment-image="artist_workshop_2k.hdr" 
+          disable-zoom 
+          ar 
+          camera-orbit="30deg 80deg 8m"
+          shadow-intensity="1.2"
+          shadow-softness="0.8"
+          exposure="1.1"
+          interaction-prompt="none">
+          <button slot="ar-button" style="display: none;"></button>
+          <div class="progress-bar" slot="progress-bar">
+            <div class="update-bar"></div>
+          </div>
+        </model-viewer>
+      </div>
+
+      <!-- Bottom Controls Toolbar (Matching 2D Builder) -->
+      <div class="builder-toolbar">
+        <!-- 1. View Angle -->
+        <div class="toolbar-col">
+          <span class="toolbar-label">View Angle</span>
+          <div class="segmented-control">
+            <button class="btn-segment btn-angle1 active" type="button"><i class="fa-solid fa-eye"></i> Profile</button>
+            <button class="btn-segment btn-angle2" type="button"><i class="fa-solid fa-eye"></i> Stern</button>
+          </div>
+        </div>
+
+        <!-- 2. Waterline Stripe Color -->
+        <div class="toolbar-col">
+          <span class="toolbar-label">Waterline Stripe Color</span>
+          <div class="swatch-group">
+            <button class="swatch-btn btn-red active" type="button" title="Red"><i class="fa-solid fa-check"></i></button>
+            <button class="swatch-btn btn-green" type="button" title="Green"></button>
+            <button class="swatch-btn btn-blue" type="button" title="Blue"></button>
+            <button class="btn-toggle btn-hide" type="button" title="Toggle Waterline Stripe">
+              <i class="fa-solid fa-eye-slash"></i>
+              <span>Hide</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. Radar System Option -->
+        <div class="toolbar-col">
+          <span class="toolbar-label">Radar Option</span>
+          <div class="segmented-control">
+            <button class="btn-segment radar-show active" type="button"><i class="fa-solid fa-satellite-dish"></i> Installed</button>
+            <button class="btn-segment radar-remove" type="button"><i class="fa-solid fa-xmark"></i> None</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  </body>
+</html>

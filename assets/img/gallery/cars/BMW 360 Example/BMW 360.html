@@ -1,0 +1,130 @@
+<!--
+  KeyShotXR
+  (c) Copyright 2012-2017 Luxion ApS - All Rights Reserved.
+-->
+
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>KeyShotXR</title>
+    <style type="text/css">
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html, body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        touch-action: pan-y;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      #KeyShotXR {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100vw !important;
+        max-height: 100vh !important;
+        position: relative !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        overflow: hidden !important;
+        background: #ffffff !important;
+        margin: auto !important;
+      }
+      #viewwindow {
+        width: 100% !important;
+        height: 100% !important;
+        position: relative !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin: 0 auto !important;
+        background: #ffffff !important;
+      }
+      #turntable {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        overflow: hidden !important;
+        background: #ffffff !important;
+      }
+      #backbuffer {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        margin: auto !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+        display: block !important;
+      }
+      /* Interaction overlay covering the entire viewport */
+      #viewwindow > div:last-child {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+    </style>
+    <script type="text/javascript" src="BMW 360/files/KeyShotXR.js"></script>
+    <script type="text/javascript">
+      var keyshotXR;
+
+      function initKeyShotXR() {
+        var nameOfDiv = "KeyShotXR";
+        var folderName = "BMW 360";
+        var viewPortWidth = 1280;
+        var viewPortHeight = 720;
+        var backgroundColor = "#ffffff";
+        var uCount = 19;
+        var vCount = 3;
+        var uWrap = true;
+        var vWrap = false;
+        var uMouseSensitivity = -0.05;
+        var vMouseSensitivity = 0.133333;
+        var uStartIndex = 0;
+        var vStartIndex = 1;
+        var minZoom = 1;
+        var maxZoom = 1;
+        var rotationDamping = 0.96;
+        var downScaleToBrowser = true;
+        var addDownScaleGUIButton = false;
+        var downloadOnInteraction = false;
+        var imageExtension = "jpg";
+        var showLoading = false;
+        var loadingIcon = "ks_logo.png"; // Set to empty string for default icon.
+        var allowFullscreen = true; // Double-click in desktop browsers for fullscreen.
+        var uReverse = false;
+        var vReverse = false;
+        var hotspots = {};
+        var isIBooksWidget = false;
+        
+        keyshotXR = new keyshotXR(nameOfDiv,folderName,viewPortWidth,viewPortHeight,backgroundColor,uCount,vCount,uWrap,vWrap,uMouseSensitivity,vMouseSensitivity,uStartIndex,vStartIndex,minZoom,maxZoom,rotationDamping,downScaleToBrowser,addDownScaleGUIButton,downloadOnInteraction,imageExtension,showLoading,loadingIcon,allowFullscreen,uReverse,vReverse,hotspots,isIBooksWidget);
+      }
+
+      window.onload = initKeyShotXR;
+    </script>
+  </head>
+  <body oncontextmenu="return false;">
+    <div id="KeyShotXR"></div>
+  </body>
+</html>

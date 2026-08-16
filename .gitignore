@@ -1,2 +1,19 @@
+# Dependencies & Build artifacts
+node_modules/
+package-lock.json
+package.json
+
+# Admin & Temporary Directories
 admin/
+
+# Raw Heavy Video Renders & Source Files (over 100MB / unused drafts)
+assets/img/gallery/showreel 2026/
+assets/img/gallery/UPDATED showreel/
+assets/img/gallery/Disturbed Innovations Group/
 assets/img/gallery/footage/Dragonfruit_Demo_Final_v1.mp4
+
+# System files
+.DS_Store
+Thumbs.db
+*.aep
+*.wav

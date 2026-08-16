@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Off Grid Trailers - 3D & Augmented Reality Experience</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Syne:wght@700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link type="text/css" href="./styles.css" rel="stylesheet"/>
+    <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+  </head>
+  <body>
+    <div class="ar-wrapper">
+      <model-viewer 
+        bounds="tight" 
+        enable-pan 
+        src="Expedition.glb" 
+        ar 
+        ar-modes="webxr scene-viewer quick-look" 
+        ar-scale="auto"
+        camera-controls 
+        environment-image="neutral" 
+        poster="poster.webp" 
+        shadow-intensity="1.5" 
+        shadow-softness="0.6" 
+        exposure="1.0"
+        camera-orbit="48.64deg 78.47deg auto" 
+        min-camera-orbit="auto auto 6m" 
+        interaction-prompt="none">
+        
+        <div class="progress-bar hide" slot="progress-bar">
+            <div class="update-bar"></div>
+        </div>
+
+        <button slot="ar-button" id="ar-button">
+            <i class="fa-solid fa-cube"></i>
+            <span>View in Your Space (AR)</span>
+        </button>
+
+        <div id="ar-prompt">
+            <img src="ar_hand_prompt.png" alt="AR Guide">
+        </div>
+      </model-viewer>  
+
+      <div class="viewer-badge">
+        <i class="fa-solid fa-arrows-rotate"></i>
+        <span>Interactive 3D &bull; Drag to Rotate</span>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  </body>
+</html>

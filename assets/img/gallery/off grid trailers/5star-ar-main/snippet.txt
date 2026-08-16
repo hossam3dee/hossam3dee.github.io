@@ -1,0 +1,11 @@
+<model-viewer bounds="tight" enable-pan src="Expedition.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls environment-image="neutral" poster="poster.webp" shadow-intensity="2" shadow-softness="0" camera-orbit="48.64deg 78.47deg auto" min-camera-orbit="auto auto 7.351m" min-field-of-view="30deg">
+    <div class="progress-bar hide" slot="progress-bar">
+        <div class="update-bar"></div>
+    </div>
+    <button slot="ar-button" id="ar-button">
+        View in your space
+    </button>
+    <div id="ar-prompt">
+        <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+    </div>
+</model-viewer>

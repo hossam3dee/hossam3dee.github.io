@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/styles.css?v=20260723_FINAL">
+  <link rel="stylesheet" href="css/styles.css?v=20260816_CLEAN_REVERT_COMPACT_PLAYER">
 </head>
 
 <body class="antialiased opacity-0 bg-[#050505] text-white overflow-x-hidden selection:bg-white/20 selection:text-white">
@@ -53,51 +53,94 @@
   </div>
 
   <!-- Floating Navigation -->
-  <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 px-6 py-3 nav-pill flex justify-center items-center w-full max-w-[90vw] md:max-w-2xl">
+  <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 px-6 py-3 nav-pill rounded-full flex justify-center items-center w-full max-w-[90vw] md:max-w-2xl">
     <a href="#" class="text-xl font-bold tracking-tighter flex items-center gap-1 text-white hover:text-gray-200 transition-colors">
       <img src="assets/img/logo_h.webp" alt="H" class="h-6 translate-x-[9px] translate-y-[-2px]">
       <span>ossam</span>
     </a>
     
-    <a href="#contact" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors text-white border border-white/10">
+    <a href="#contact" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all text-white shadow-md">
       <i class="fa-solid fa-phone text-sm"></i>
     </a>
   </nav>
 
   <!-- Hero Section -->
   <header class="relative h-screen w-full overflow-hidden flex flex-col items-center justify-center">
-    <!-- Background Video with Mask -->
-    <div class="absolute inset-0 z-0">
-        <video src="assets/vid/header.mp4" autoplay loop muted playsinline
-          class="w-full h-full object-cover opacity-30"></video>
-        <!-- Gradient Overlay for smooth fade -->
-        <div class="absolute inset-0 bg-gradient-to-b from-[#050505] via-transparent to-[#050505]"></div>
-        <div class="absolute inset-0 bg-black/20 backdrop-blur-[2px]"></div>
-    </div>
+    <!-- Interactive Canvas Dot Grid Background (Non-blocking touch) -->
+    <canvas id="hero-dot-grid" class="absolute inset-0 w-full h-full z-0 pointer-events-none"></canvas>
+    
+    <!-- Smooth Edge Gradient Vignette Overlay -->
+    <div class="absolute inset-0 bg-radial-vignette pointer-events-none z-[1]"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#050505]/40 via-transparent to-[#050505] pointer-events-none z-[2]"></div>
 
-    <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
-      <h1 class="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter mb-2 leading-none hero-title hero-text-gradient select-none">
+    <div class="relative z-10 text-center px-4 max-w-5xl mx-auto pointer-events-none select-none flex flex-col items-center">
+      <img src="assets/img/logo (2).webp" alt="Hossam Logo" class="hero-logo w-24 h-24 md:w-32 md:h-32 object-contain mb-8 md:mb-12 drop-shadow-[0_10px_25px_rgba(0,0,0,0.8)] filter transition-transform hover:scale-105 duration-300">
+      <h1 class="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter mb-2 leading-none hero-title hero-text-gradient">
         HOSSAM
       </h1>
-      <div class="glass-panel inline-block px-8 py-3 mt-4">
+      <div class="glass-panel inline-block px-8 py-3 mt-4 pointer-events-auto">
         <p class="text-xl md:text-2xl font-medium tracking-[0.2em] uppercase text-gray-200 hero-subtitle">
           Motion Graphics & 3D Visuals
         </p>
       </div>
     </div>
     
-    <div class="absolute bottom-24 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
-      <i class="fa-solid fa-arrow-down text-xl text-white/50"></i>
+    <div class="absolute bottom-16 left-1/2 -translate-x-1/2 animate-bounce opacity-50 pointer-events-none z-10">
+      <a href="#showreel" class="pointer-events-auto text-white/50 hover:text-white transition-colors">
+        <i class="fa-solid fa-arrow-down text-xl"></i>
+      </a>
     </div>
   </header>
 
-  <!-- About Section -->
-  <section id="about" class="py-32 px-6 relative z-10">
+  <!-- Featured Showreel Section -->
+  <section id="showreel" class="relative z-10 py-12 px-4 md:px-10 -mt-6">
+    <div class="max-w-5xl mx-auto">
+      <!-- Section Header Bar -->
+      <div class="flex items-center gap-3 mb-4">
+        <span class="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(239,68,68,0.9)]"></span>
+        <h2 class="text-lg md:text-xl font-bold tracking-tight text-white flex items-center gap-2.5">
+          <span>Watch This First</span>
+        </h2>
+      </div>
+
+      <!-- Video Player Frame -->
+      <div class="relative w-full aspect-video rounded-2xl md:rounded-3xl overflow-hidden bg-black shadow-2xl border border-white/10 flex items-center justify-center">
+        <iframe 
+          src="https://www.youtube-nocookie.com/embed/0fWd14QY0Cc?rel=0&modestbranding=1&playsinline=1" 
+          title="Watch This First" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen 
+          class="w-full h-full border-0 block rounded-2xl md:rounded-3xl">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work Section -->
+  <section id="work" class="py-20 px-4 md:px-10 relative z-10">
+    <div class="max-w-7xl mx-auto">
+        <!-- Category Filter Tabs (Horizontally Scrollable on Mobile, Centered on Desktop) -->
+        <div class="w-full max-w-full overflow-x-auto pb-4 mb-12 scrollbar-none no-scrollbar flex items-center gap-2.5 md:gap-3 justify-start md:justify-center px-4 md:px-0 touch-pan-x">
+            <button data-filter="all" class="filter-btn active px-5 md:px-6 py-2.5 text-xs font-bold uppercase tracking-wider whitespace-nowrap">All</button>
+            <button data-filter="3d" class="filter-btn px-5 md:px-6 py-2.5 text-xs font-bold uppercase tracking-wider whitespace-nowrap">3D & Visuals</button>
+            <button data-filter="motion" class="filter-btn px-5 md:px-6 py-2.5 text-xs font-bold uppercase tracking-wider whitespace-nowrap">Motion Graphics</button>
+            <button data-filter="automotive" class="filter-btn px-5 md:px-6 py-2.5 text-xs font-bold uppercase tracking-wider whitespace-nowrap">Automotive</button>
+            <button data-filter="photography" class="filter-btn px-5 md:px-6 py-2.5 text-xs font-bold uppercase tracking-wider whitespace-nowrap">Photography</button>
+        </div>
+
+        <div id="projects-grid" class="flex flex-col gap-12">
+            <!-- Projects will be injected here via JS -->
+        </div>
+    </div>
+  </section>
+
+  <!-- About & Creative Toolkit Section (Bottom) -->
+  <section id="about" class="py-24 px-6 relative z-10">
     <div class="max-w-6xl mx-auto">
         <div class="glass-panel p-8 md:p-12 flex flex-col md:flex-row items-center gap-12">
-            <div class="w-40 h-40 md:w-56 md:h-56 overflow-hidden border-2 border-white/20 shadow-2xl flex-shrink-0 relative group">
-                <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
-                <img src="assets/img/PP.webp" alt="Hossam" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+            <div class="w-40 h-40 md:w-56 md:h-56 rounded-3xl overflow-hidden shadow-2xl flex-shrink-0 relative group">
+                <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 rounded-3xl"></div>
+                <img src="assets/img/PP.webp" alt="Hossam" class="w-full h-full object-cover rounded-3xl transform group-hover:scale-110 transition-transform duration-500">
             </div>
             <div class="flex-1 text-center md:text-left">
                 <h2 class="text-2xl md:text-5xl font-bold mb-6 flex items-center justify-center md:justify-start gap-4">
@@ -110,8 +153,8 @@
         </div>
 
         <!-- Toolkit -->
-        <div class="mt-24">
-            <h3 class="text-2xl font-bold mb-10 text-center flex items-center gap-3 justify-center opacity-80">
+        <div class="mt-20">
+            <h3 class="text-xl md:text-2xl font-bold mb-10 text-center flex items-center gap-3 justify-center opacity-80">
                 <i class="fa-solid fa-layer-group text-blue-500"></i> Creative Toolkit
             </h3>
             <div class="flex flex-wrap justify-center gap-5">
@@ -156,57 +199,34 @@
     </div>
   </section>
 
-  <!-- Work Section -->
-  <section id="work" class="py-20 px-4 md:px-10 relative z-10">
-    <div class="max-w-7xl mx-auto">
-        <!-- Category Filter Tabs -->
-        <div class="flex items-center gap-3 overflow-x-auto pb-4 mb-12 scrollbar-none no-scrollbar">
-            <button data-filter="all" class="filter-btn active px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all border border-white/20 bg-white text-black shadow-lg whitespace-nowrap">All</button>
-            <button data-filter="3d" class="filter-btn px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all border border-white/10 bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white whitespace-nowrap">3D & Visuals</button>
-            <button data-filter="motion" class="filter-btn px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all border border-white/10 bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white whitespace-nowrap">Motion Graphics</button>
-            <button data-filter="automotive" class="filter-btn px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all border border-white/10 bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white whitespace-nowrap">Automotive</button>
-            <button data-filter="ar" class="filter-btn px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all border border-white/10 bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white whitespace-nowrap">AR & Products</button>
-        </div>
-
-        <div id="projects-grid" class="flex flex-col gap-12">
-            <!-- Projects will be injected here via JS -->
-        </div>
-    </div>
-  </section>
-
   <!-- Toast Notification -->
-  <div id="copy-toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-[200] px-6 py-3 glass-panel border border-white/20 text-white font-medium text-sm flex items-center gap-3 shadow-2xl opacity-0 pointer-events-none transition-all duration-300">
+  <div id="copy-toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-[200] px-6 py-3 glass-panel text-white font-medium text-sm flex items-center gap-3 shadow-2xl opacity-0 pointer-events-none transition-all duration-300">
       <i class="fa-solid fa-circle-check text-green-400 text-base"></i>
       <span>Copied to Clipboard!</span>
   </div>
 
   <!-- Contact Footer -->
-  <footer id="contact" class="py-32 px-6 text-center relative overflow-hidden z-10">
-    <div class="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent pointer-events-none"></div>
-    <div class="relative z-10 max-w-4xl mx-auto glass-panel p-12 md:p-20">
-      <h2 class="text-4xl md:text-6xl font-black mb-8 hero-text-gradient">Let's Build Something Great</h2>
-      <p class="text-gray-400 mb-12 text-lg">Ready to bring your vision to life?</p>
+  <footer id="contact" class="pt-28 pb-16 px-6 text-center relative overflow-hidden z-10">
+    <div class="absolute inset-0 bg-gradient-to-t from-blue-900/10 to-transparent pointer-events-none"></div>
+    
+    <!-- Contact Info Container -->
+    <div class="relative z-10 max-w-4xl mx-auto glass-panel p-12 md:p-20 mb-16">
+      <h2 class="text-4xl md:text-6xl font-black mb-6 hero-text-gradient">Let's Build Something Great</h2>
+      <p class="text-gray-400 mb-10 text-lg font-light">Ready to bring your vision to life?</p>
 
       <div class="flex justify-center">
         <a href="mailto:hossam3dee@gmail.com"
-            class="inline-flex items-center justify-center gap-3 text-sm md:text-2xl font-bold hover:text-blue-400 transition-colors mb-12 border-b border-white/20 pb-2 hover:border-blue-400 max-w-full overflow-hidden whitespace-nowrap text-ellipsis">
+            class="inline-flex items-center justify-center gap-3 text-sm md:text-2xl font-bold hover:text-blue-400 transition-colors max-w-full overflow-hidden whitespace-nowrap text-ellipsis opacity-90 hover:opacity-100">
             <img src="assets/img/Gmail.png" alt="Gmail" class="w-5 md:w-8 flex-shrink-0">
             <span>hossam3dee@gmail.com</span>
         </a>
       </div>
+    </div>
 
-      <div class="flex justify-center gap-8 mb-16">
-        <a href="https://www.upwork.com/freelancers/~01ee0dc915e23d6c8d?mp_source=share" target="_blank"
-          class="flex items-center gap-2 text-gray-300 hover:text-white transition-colors px-6 py-3 border border-white/10 hover:bg-white/5">
-          <span>Find me on </span>
-          <img src="assets/img/upwork-1024x304.webp" alt="Upwork" class="h-5 opacity-80">
-        </a>
-      </div>
-
-      <div class="border-t border-white/10 pt-8 text-gray-500 text-[0.7rem] md:text-xs uppercase tracking-widest">
-        <p>&copy; <span id="year"></span> All rights reserved.</p>
-        <p class="mt-2">Designed with <i class="fa-solid fa-heart text-red-500 animate-pulse"></i> by Hossam</p>
-      </div>
+    <!-- Copyright (Outside container) -->
+    <div class="relative z-10 text-gray-500 text-[0.7rem] md:text-xs uppercase tracking-widest space-y-2">
+      <p>&copy; <span id="year"></span> All rights reserved.</p>
+      <p>Designed with <i class="fa-solid fa-heart text-red-500 animate-pulse"></i> by Hossam</p>
     </div>
   </footer>
 
@@ -284,8 +304,9 @@
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="js/projects-data.js?v=20260723_FINAL"></script>
-  <script src="js/main.js?v=20260723_FINAL"></script>
+  <script src="js/dot-grid.js?v=20260816_CLEAN_REVERT_COMPACT_PLAYER"></script>
+  <script src="js/projects-data.js?v=20260816_CLEAN_REVERT_COMPACT_PLAYER"></script>
+  <script src="js/main.js?v=20260816_CLEAN_REVERT_COMPACT_PLAYER"></script>
 </body>
 
 </html>
