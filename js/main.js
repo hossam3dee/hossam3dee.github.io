@@ -232,52 +232,55 @@ function renderProjects(projects) {
         const imageItems = mediaList.filter(m => m.type === 'image');
         const custom2DBuilderItems = mediaList.filter(m => m.type === 'interactive-2d-builder');
 
-        // Render Videos Section
+        // Create Section Containers
+        let videoSection = null;
+        let baSection = null;
+        let imageSection = null;
+        let builder2DSection = null;
+        let interactiveSection = null;
+
+        // 1. Prepare Videos Section
         if (videoItems.length > 0) {
-            const videoSection = document.createElement('div');
-            videoSection.className = 'mb-8 w-full space-y-6 flex flex-col items-center';
+            videoSection = document.createElement('div');
+            videoSection.className = 'mb-8 w-full max-w-5xl mx-auto space-y-6 flex flex-col items-center';
 
             videoItems.forEach((mediaItem) => {
                 if (mediaItem.type === 'video') {
                     videoSection.appendChild(createCustomVideoPlayer(mediaItem));
                 } else if (mediaItem.type === 'youtube') {
                     const videoWrapper = document.createElement('div');
-                    videoWrapper.className = 'w-full max-w-5xl mx-auto overflow-hidden shadow-2xl aspect-video bg-black border border-white/10';
+                    videoWrapper.className = 'w-full max-w-5xl mx-auto overflow-hidden shadow-2xl aspect-video bg-black border border-white/10 rounded-2xl';
                     videoWrapper.innerHTML = `
                         <iframe src="https://www.youtube.com/embed/${mediaItem.src}"
-                            class="w-full h-full border-0 block"
+                            class="w-full h-full border-0 block rounded-2xl"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
                     `;
                     videoSection.appendChild(videoWrapper);
                 }
             });
-
-            block.appendChild(videoSection);
         }
 
-        // Render Before/After Interactive Split Sliders
+        // 2. Prepare Before/After Interactive Split Sliders
         if (beforeAfterItems.length > 0) {
-            const baSection = document.createElement('div');
+            baSection = document.createElement('div');
             baSection.className = 'mb-8 w-full max-w-5xl mx-auto';
 
             beforeAfterItems.forEach(baItem => {
                 const sliderCard = createBeforeAfterSlider(baItem);
                 baSection.appendChild(sliderCard);
             });
-
-            block.appendChild(baSection);
         }
 
-        // Render Images with Symmetrical, Center-Aligned Grid
+        // 3. Prepare Images with Symmetrical, Center-Aligned Grid
         if (imageItems.length > 0) {
-            const imageSection = document.createElement('div');
+            imageSection = document.createElement('div');
             imageSection.className = 'w-full max-w-5xl mx-auto space-y-6 flex flex-col items-center mb-8';
 
             if (imageItems.length === 1) {
                 const mediaItem = imageItems[0];
                 const originalIndex = project.media.findIndex(m => m.src === mediaItem.src);
-                const card = createImageCard(mediaItem, project.title, () => openLightbox(project.media, originalIndex, project.title, project.description), 'w-full max-w-4xl mx-auto');
+                const card = createImageCard(mediaItem, project.title, () => openLightbox(project.media, originalIndex, project.title, project.description), 'w-full max-w-5xl mx-auto');
                 imageSection.appendChild(card);
             } else if (imageItems.length % 2 === 1) {
                 // Odd count (e.g. 5, 3): Hero top card + balanced 2-column grid
@@ -301,9 +304,18 @@ function renderProjects(projects) {
                 });
                 imageSection.appendChild(grid);
             }
-
-            block.appendChild(imageSection);
         }
+
+        // Append Media Sections based on mediaOrder
+        const isImageFirst = project.mediaOrder === 'image-first' || (project.id === 'qcify');
+        if (isImageFirst) {
+            if (imageSection) block.appendChild(imageSection);
+            if (videoSection) block.appendChild(videoSection);
+        } else {
+            if (videoSection) block.appendChild(videoSection);
+            if (imageSection) block.appendChild(imageSection);
+        }
+        if (baSection) block.appendChild(baSection);
 
         // Render 2D Interactive Builder Component (if any)
         if (custom2DBuilderItems.length > 0) {
@@ -745,7 +757,7 @@ function createImageCard(mediaItem, title, onClickHandler, extraClasses = '') {
     imageCard.className = `relative group overflow-hidden rounded-2xl shadow-2xl transition-all duration-300 cursor-pointer flex flex-col justify-center items-center bg-black/40 border border-white/10 ${extraClasses}`;
     
     imageCard.innerHTML = `
-        <div class="w-full flex items-center justify-center overflow-hidden rounded-2xl aspect-[16/10] bg-black/50">
+        <div class="w-full flex items-center justify-center overflow-hidden rounded-2xl aspect-video bg-black/50">
             <img src="${mediaItem.src}" alt="${title}"
                 loading="lazy"
                 class="w-full h-full object-cover rounded-2xl group-hover:scale-[1.025] transition-transform duration-500 block mx-auto">

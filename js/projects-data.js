@@ -352,7 +352,69 @@ window.PORTFOLIO_PROJECTS = [
     ]
   },
 
-  // 7. Automotive CGI
+  // 7. Campion Boats
+  {
+    "id": "campion-boats",
+    "category": "3d",
+    "classes": "project-block glass-panel p-6 md:p-12 mb-20",
+    "title": "Campion Boats",
+    "shortDescription": "Marine CGI & Fiberglass Sportboat Visualization",
+    "thumbnail": "assets/img/gallery/campion boats/Allante.png",
+    "thumbnailVideo": null,
+    "thumbnailPoster": null,
+    "description": "<p>High-end 3D visualization and CAD product rendering for <strong>Campion Boats</strong>, Canada’s iconic performance fiberglass boat builder. Showcasing precision marine styling, dynamic hull finishes, and interior spatial configurations across the flagship <strong>Allante</strong> bowriders, <strong>Explorer</strong> hardtop sport cabin cruisers, <strong>Muskoka</strong> luxury deck boats, and the <strong>Rage</strong> high-performance series.</p>",
+    "client": {
+      "name": "Campion Boats",
+      "type": "Marine CGI & 3D Visualization",
+      "website": "https://campionboats.com/",
+      "logo": "assets/img/gallery/campion boats/campion-boats-logo.svg",
+      "logoClass": "h-7 md:h-9 w-auto object-contain opacity-90"
+    },
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/img/gallery/campion boats/Allante.png",
+        "caption": "Campion Allante Sportboat: High-Performance Profile CGI"
+      },
+      {
+        "type": "image",
+        "src": "assets/img/gallery/campion boats/136347248_431129661658457_8744108765764430305_n.png",
+        "caption": "Campion Rage: High-Performance Multi-Species Bass Boat"
+      },
+      {
+        "type": "image",
+        "src": "assets/img/gallery/campion boats/140765310_409421846804920_8806148784843861528_n.png",
+        "caption": "Campion Muskoka: Luxury Sport Bowrider & Lounge Deck"
+      },
+      {
+        "type": "image",
+        "src": "assets/img/gallery/campion boats/141927173_863581221097636_7763337251745550624_n.png",
+        "caption": "Campion Explorer 542: Offshore Hardtop Cabin Cruiser"
+      },
+      {
+        "type": "image",
+        "src": "assets/img/gallery/campion boats/141340969_904537090351460_926988902453601077_n.png",
+        "caption": "Campion Explorer: Lateral Hull Geometry & Outboard Rigging"
+      },
+      {
+        "type": "image",
+        "src": "assets/img/gallery/campion boats/140597692_713553766216588_2712213244904695636_n.png",
+        "caption": "Campion Allante: Forward Cockpit & Marine Upholstery"
+      },
+      {
+        "type": "image",
+        "src": "assets/img/gallery/campion boats/141992549_235406808080642_8807604087386153255_n.png",
+        "caption": "Campion Explorer: Overhead Deck Plan & Spatial Architecture"
+      },
+      {
+        "type": "image",
+        "src": "assets/img/gallery/campion boats/IMG_20251026_152417_393.jpg",
+        "caption": "Campion Allante: Top-Down Seating & Ergonomic Deck Layout"
+      }
+    ]
+  },
+
+  // 8. Automotive CGI
   {
     "id": "cars",
     "category": "automotive",
@@ -727,7 +789,47 @@ window.PORTFOLIO_PROJECTS = [
     ]
   },
 
-  // 13. Xometry
+  // 13. Qcify Automated Quality Control
+  {
+    "id": "qcify",
+    "category": "3d",
+    "mediaOrder": "image-first",
+    "classes": "project-block glass-panel p-6 md:p-12 mb-20",
+    "title": "Qcify Automated Quality Control",
+    "shortDescription": "3D Industrial CGI & Optical Inspection Animation",
+    "thumbnail": "assets/img/gallery/qcify/IMG_20251026_140735_697.jpg",
+    "thumbnailVideo": "assets/img/gallery/qcify/QCIFY%20Animation.mp4",
+    "thumbnailPoster": null,
+    "description": "<p>High-precision 3D industrial product animation and CGI for <strong>Qcify</strong>, innovators in AI-powered optical quality control and automated 3D vision inspection systems. Highlighting functional industrial enclosure mechanics, optical scanning sensors, touchscreen telemetry, and photorealistic studio lighting.</p>",
+    "client": {
+      "name": "Qcify Inc.",
+      "type": "Industrial 3D Animation & Product CGI",
+      "website": "https://www.qcify.com/",
+      "logo": "assets/img/gallery/qcify/qcify-logo.svg",
+      "logoClass": "h-8 md:h-10 w-auto object-contain"
+    },
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/img/gallery/qcify/IMG_20251026_140735_697.jpg",
+        "caption": "Qcify Automated Optical Quality Control Unit: Studio CGI"
+      },
+      {
+        "type": "video",
+        "src": "assets/img/gallery/qcify/QCIFY Animation.mp4"
+      },
+      {
+        "type": "video",
+        "src": "assets/img/gallery/qcify/Short Version (1).mp4"
+      },
+      {
+        "type": "video",
+        "src": "assets/img/gallery/qcify/Short Version.mp4"
+      }
+    ]
+  },
+
+  // 14. Xometry
   {
     "id": "xometry",
     "category": "3d",
